@@ -1,0 +1,89 @@
+#addCategoria{
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px grey;    
+    max-width: 800px;
+}
+
+#addCategoria div{    
+    display: inline-block;
+    text-align: left; 
+    width: 300px;      
+}
+
+#buscar-categoria{
+    width: 88%;
+}
+
+#buscar-categoria,#nuevaCat{
+    display: inline-block;
+}
+
+#lista-categorias{
+    background-color: #CCC;
+    box-shadow: 5px 5px 5px black;
+}
+
+.cabecera{    
+    width: 40.8%;
+}
+
+.cabecera,.cabecera-check{
+    background-color: #3333ff;
+    color: white;
+    display: inline-block;
+    font-size: 1.2em;
+    height: 1.3em;
+}
+
+.cabecera-check{
+    width: 17.3%;
+}
+
+.campo{
+    width: 100%;
+}
+
+.fila-impar-check a:hover,
+.fila-par-check a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+.fila{
+    height: 1.7em;
+}
+
+.fila-impar{
+    background-color: white;    
+}
+
+.fila-impar-check{
+    background-color: white;    
+}
+
+.fila-impar, .fila-par{
+    display: inline-block;
+    height: 1.5em;
+    width: 40.8%;
+}
+
+.fila-impar-check, .fila-par-check{
+    display: inline-block;
+    height: 1.5em;
+    width: 17.3%;
+}
+
+.fila-impar-check a, .fila-par-check a{
+    display: inline-block;
+    font-size: .85em;
+    padding-left: 1em;
+}
+
+.fila-par{
+    background-color: #cccc92;   
+}
+
+.fila-par-check{
+    background-color: #cccc92;   
+}
+

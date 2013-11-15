@@ -1,0 +1,34 @@
+
+#addResponsable{
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px grey;    
+    max-width: 800px;
+}
+
+#addResponsable div{    
+    display: inline-block;
+    text-align: left; 
+    width: 300px;      
+}
+
+#buscar-responsable{
+    width: 88%;
+}
+
+#buscar-responsable,#nuevoResp{
+    display: inline-block;
+}
+
+#lista-responsables{
+    background-color: #CCC;
+    box-shadow: 5px 5px 5px black;
+}
+
+.cabecera{    
+    width: 27%;
+}
+
+.cabecera-check{
+    width: 17.3%;
+}
+
