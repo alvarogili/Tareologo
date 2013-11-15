@@ -111,11 +111,12 @@ nav{
 }
 
 .logo{
+    border-right: 2px dashed white;
     color:red;
-    font-size: 30px;
+    font-size: 30px;    
     font-weight: bold;
     text-decoration: none;
-    padding-right: 60%;
+    margin-right: 50px;
 }
 
 .menu{  
@@ -124,7 +125,7 @@ nav{
     border-radius: 5px;
     box-shadow: 1px 1px 0px grey;
     color: #333333;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-right: 5px;
     padding-left: 10px;

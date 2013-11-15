@@ -16,14 +16,12 @@
 </style>
         </head>
         <body>
-            <div id="titulo">
-                <h1>Tareólogo</h1>        
-            </div>
-            <nav>
+            <nav>                                         
                 <h:form>
-                    <h:commandLink action="index" value="Inicio" />
-                    <h:commandLink action="responsables" value="Responsables" />
-                    <h:commandLink action="categorias" value="Categorías"  style="color:blanchedalmond;" />
+                    <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
+                    <h:commandLink styleClass="menu" action="index" value="Inicio"/>
+                    <h:commandLink styleClass="menu" action="responsables" value="Responsables" />
+                    <h:commandLink styleClass="menu" action="categorias" value="Categorías" style="background-color: #333333; color:white; font-style: italic;" />
                 </h:form>
             </nav>
             <div id="contenido">

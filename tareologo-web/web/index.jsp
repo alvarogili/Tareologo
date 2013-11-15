@@ -12,7 +12,6 @@
             </style>
         </head>    
         <body>
-
             <nav>                                         
                 <h:form>
                     <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
