@@ -1,5 +1,13 @@
 Categorias:
 
--buscar
+-buscar: filtrar por contain sin tener que poner la frase entera
 -Editar 
 -ver que guarde correctamente caractéres españoles
+
+Responsables:
+
+-rediseño
+
+Tareas:
+
+-todo
