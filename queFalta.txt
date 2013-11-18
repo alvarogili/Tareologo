@@ -1,0 +1,5 @@
+Categorias:
+
+-buscar
+-Editar 
+-ver que guarde correctamente caractéres españoles
