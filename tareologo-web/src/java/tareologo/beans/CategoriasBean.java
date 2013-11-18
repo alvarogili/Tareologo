@@ -44,9 +44,12 @@ public class CategoriasBean {
         return filter;
     }
 
-    public String setFilter(String filter) {
-        this.filter = filter;
-        return "categorias";
+    public void setFilter(String filter) {
+        this.filter = filter;        
+    }
+    
+    public void removeFilter(){
+        this.filter = null;
     }
 
     public void remove(int id) {

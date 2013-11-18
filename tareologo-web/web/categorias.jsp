@@ -35,7 +35,10 @@
                 <h:form id="buscar">
                     Filtrar por nombre:
                     <h:inputText id="filtro" label="Buscar" value="#{CategoriasBean.filter}" />
-                    <h:commandButton type="submit" styleClass="boton" value="Aplicar" />
+                    <h:commandButton type="submit" styleClass="boton" value="Aplicar" action="categorias" />
+                    <h:commandLink id="quitarFiltro" action="#{CategoriasBean.removeFilter()}">
+                        <h:outputText value="Quitar filtro" />
+                    </h:commandLink>
                 </h:form>
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarCategoria" />  

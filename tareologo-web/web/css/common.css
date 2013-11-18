@@ -66,6 +66,10 @@ a:hover{
     padding-right: 10%;
 }
 
+#quitarFiltro{
+    font-size: 8px;
+}
+
 .buttonSubMenu{
     background-color: gray;
     border-radius: 5px;
