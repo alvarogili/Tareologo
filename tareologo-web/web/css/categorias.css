@@ -10,21 +10,12 @@
     width: 300px;      
 }
 
-#buscar-categoria{
-    width: 88%;
-}
-
-#buscar-categoria,#nuevaCat{
-    display: inline-block;
-}
-
 #lista-categorias{
-    background-color: #CCC;
-    box-shadow: 5px 5px 5px black;
+    width: 80%;
 }
 
 .cabecera{    
-    width: 40.8%;
+    width: 37%;
 }
 
 .cabecera,.cabecera-check{
@@ -36,7 +27,7 @@
 }
 
 .cabecera-check{
-    width: 17.3%;
+    width: 22%;
 }
 
 .campo{
@@ -64,13 +55,13 @@
 .fila-impar, .fila-par{
     display: inline-block;
     height: 1.5em;
-    width: 40.8%;
+    width: 37%;
 }
 
 .fila-impar-check, .fila-par-check{
     display: inline-block;
     height: 1.5em;
-    width: 17.3%;
+    width: 22%;
 }
 
 .fila-impar-check a, .fila-par-check a{
@@ -85,5 +76,11 @@
 
 .fila-par-check{
     background-color: #cccc92;   
+}
+
+@media screen and (max-width: 1000px){
+    #lista-categorias{
+        width: 100%;
+    }
 }
 
