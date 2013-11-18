@@ -35,9 +35,12 @@ public class CategoriasBean {
             categorias = categoriaManager.getAll();
         } else {
             categorias = categoriaManager.findByName(filter);
-            filter = null;
         }
         return categorias;
+    }
+    
+    public boolean containCategorias(){
+        return getCategorias().size() > 0;
     }
 
     public String getFilter() {

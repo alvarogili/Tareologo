@@ -36,9 +36,7 @@
                     Filtrar por nombre:
                     <h:inputText id="filtro" label="Buscar" value="#{CategoriasBean.filter}" />
                     <h:commandButton type="submit" styleClass="boton" value="Aplicar" action="categorias" />
-                    <h:commandLink id="quitarFiltro" action="#{CategoriasBean.removeFilter()}">
-                        <h:outputText value="Quitar filtro" />
-                    </h:commandLink>
+                    <h:commandLink id="quitarFiltro" styleClass="link" value="Quitar filtro" action="#{CategoriasBean.removeFilter()}" /> 
                 </h:form>
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarCategoria" />  
@@ -48,7 +46,7 @@
                     <br>
                     <table id="lista-categorias">  
                         <c:choose>
-                            <c:when test="@{CategoriasBean.categorias.size() == 0}">                        
+                            <c:when test="@{!CategoriasBean.containCategorias()}">                        
                                 <b style="font-size: 20px;">No se cargaron categorías aún.</b>
                             </c:when>
                             <c:otherwise>
