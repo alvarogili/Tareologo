@@ -19,7 +19,7 @@ import tareologo.business.model.Categoria;
 @ManagedBean(name = "CategoriasBean")
 @SessionScoped
 public class CategoriasBean {
-    
+
     private CategoriaManager categoriaManager = new CategoriaManager();
     private String filter;
 
@@ -30,19 +30,26 @@ public class CategoriasBean {
     }
 
     public List<Categoria> getCategorias() {
-        return categoriaManager.getAll();
-    } 
+        List<Categoria> categorias;
+        if (filter == null) {
+            categorias = categoriaManager.getAll();
+        } else {
+            categorias = categoriaManager.findByName(filter);
+            filter = null;
+        }
+        return categorias;
+    }
 
     public String getFilter() {
         return filter;
     }
 
-    public void setFilter(String filter) {
+    public String setFilter(String filter) {
         this.filter = filter;
+        return "categorias";
     }
-    
-    
-    public void remove(int id){
+
+    public void remove(int id) {
         try {
             categoriaManager.delete(id);
         } catch (Exception ex) {

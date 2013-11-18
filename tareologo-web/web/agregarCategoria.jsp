@@ -16,13 +16,15 @@
             </style>
         </head>
         <body>
-            <nav>                                         
+            <nav>  
                 <h:form>
                     <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
-                    <h:commandLink styleClass="menu" action="index" value="Inicio" />
+                </h:form>
+                <h:form id="formMenu">                    
+                    <h:commandLink styleClass="menu" action="index" value="Inicio"/>
                     <h:commandLink styleClass="menu" action="responsables" value="Responsables" />
                     <h:commandLink styleClass="menu" action="categorias" value="Categorías" style="background-color: #333333; color:white; font-style: italic;" />
-                </h:form>
+                </h:form>                
             </nav>
             <div id="contenido">
                 <center>

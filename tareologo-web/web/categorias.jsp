@@ -16,9 +16,11 @@
 </style>
         </head>
         <body>
-            <nav>                                         
+            <nav>       
                 <h:form>
                     <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
+                </h:form>
+                <h:form id="formMenu">                    
                     <h:commandLink styleClass="menu" action="index" value="Inicio"/>
                     <h:commandLink styleClass="menu" action="responsables" value="Responsables" />
                     <h:commandLink styleClass="menu" action="categorias" value="Categorías" style="background-color: #333333; color:white; font-style: italic;" />
@@ -31,8 +33,9 @@
                     <br>
                 </center>
                 <h:form id="buscar">
-                    <h:inputText id="filtro" label="Buscar" value="" />
-                    <h:commandButton type="submit" styleClass="boton" value="Buscar por nombre" />
+                    Filtrar por nombre:
+                    <h:inputText id="filtro" label="Buscar" value="#{CategoriasBean.filter}" />
+                    <h:commandButton type="submit" styleClass="boton" value="Aplicar" />
                 </h:form>
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarCategoria" />  
