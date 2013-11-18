@@ -2,8 +2,6 @@ package tareologo.business.managers;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import tareologo.business.model.Categoria;
 import tareologo.persistence.dao.CategoriaDAO;
 import tareologo.persistence.dao.exceptions.NonexistentEntityException;
@@ -66,7 +64,7 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
         }
     }
 
-//    @Override
+    @Override
     public List<Categoria> getAll() {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         List<CategoriaEntity> categoriaEntities = categoriaDAO.findCategoriaEntityEntities();
@@ -79,4 +77,15 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
         return categorias;
     }
   
+    public List<Categoria> findByName(String name){
+        CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
+        List<CategoriaEntity> categoriaEntities = categoriaDAO.findCategoriaEntityByNombre(name);
+        List<Categoria> categorias = new ArrayList<>();
+        for(CategoriaEntity categoriaEntity:categoriaEntities){
+            Categoria categoria = new Categoria();
+            categoria.setEntity(categoriaEntity);
+            categorias.add(categoria);
+        }
+        return categorias;
+    }
 }
