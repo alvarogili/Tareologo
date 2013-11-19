@@ -113,8 +113,8 @@ public class CategoriaDAO implements Serializable {
     }
 
     /**
-     * Return a list of {@link CategoriaEntity} starting in firstResult and ending in
-     * firstResult + maxResults
+     * Return a list of {@link CategoriaEntity} starting in firstResult and
+     * ending in firstResult + maxResults
      *
      * @param maxResults
      * @param firstResult
@@ -165,7 +165,7 @@ public class CategoriaDAO implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createNamedQuery("CategoriaEntity.findByNombre", CategoriaEntity.class);
-            q.setParameter("nombre", nombre);
+            q.setParameter("nombre", "%" + nombre + "%");
             return q.getResultList();
         } finally {
             em.close();
@@ -189,5 +189,4 @@ public class CategoriaDAO implements Serializable {
             em.close();
         }
     }
-
 }

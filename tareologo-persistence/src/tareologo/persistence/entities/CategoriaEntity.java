@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "CategoriaEntity.findAll", query = "SELECT c FROM CategoriaEntity c"),
     @NamedQuery(name = "CategoriaEntity.findById", query = "SELECT c FROM CategoriaEntity c WHERE c.id = :id"),
-    @NamedQuery(name = "CategoriaEntity.findByNombre", query = "SELECT c FROM CategoriaEntity c WHERE c.nombre = :nombre")})
+    @NamedQuery(name = "CategoriaEntity.findByNombre", query = "SELECT c FROM CategoriaEntity c WHERE c.nombre like :nombre")})
 public class CategoriaEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
