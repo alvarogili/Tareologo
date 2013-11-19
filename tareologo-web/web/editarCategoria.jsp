@@ -7,7 +7,7 @@
     <f:view>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Agregar categoría</title>
+            <title>Editando categoría</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
             </style>
@@ -28,28 +28,27 @@
             </nav>
             <div id="contenido">
                 <center>
-                    <b style="font-size: 20px;">Agregando una categoría</b>            
+                    <b style="font-size: 20px;">Editando categoría "${EditCategoriaBean.categoria.nombre}"</b>            
                     <br>
                     <br>
                     <br>
-                    <h:form  id="addCategoria">                        
+                    <h:form  id="addCategoria">
                         <br>
                         <div>
                             <h:outputLabel for="nombre" value="Nombre:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="nombre" value="#{CategoriaBean.nombre}" required="true" />
+                            <h:inputText styleClass="campo" id="nombre" value="#{EditCategoriaBean.categoria.nombre}" required="true" />
                         </div>
                         <hr>
                         <div>
                             <h:outputLabel for="descripcion" value="Descripcion:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="descripcion" value="#{CategoriaBean.descripcion}" />
+                            <h:inputText styleClass="campo" id="descripcion" value="#{EditCategoriaBean.categoria.descripcion}" />
                         </div>
                         <hr>                                    
-                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
-                        <h:commandButton value="Limpiar campos" type="reset" />
+                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{EditCategoriaBean.update()}" action="categorias" />                        
                         <h:commandButton value="  Cancelar  "  action="categorias" />
                         <br>
                         <br>

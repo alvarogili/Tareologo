@@ -1,0 +1,43 @@
+package tareologo.beans;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import tareologo.business.managers.CategoriaManager;
+import tareologo.business.model.Categoria;
+
+/**
+ * Bean to edit a categoria
+ * @author alvaro
+ */
+@ManagedBean(name = "EditCategoriaBean")
+@SessionScoped
+public class EditCategoriaBean {
+    
+    private CategoriaManager categoriaManager = new CategoriaManager();
+    private Categoria categoria;
+
+    /**
+     * Creates a new instance of EditCategoriaBean
+     */
+    public EditCategoriaBean() {
+    }
+    
+    public String edit(Categoria categoria){
+        this.categoria = categoria;
+        return "edit";
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    
+    public String update() throws Exception{
+        categoriaManager.update(categoria);
+        return "categorias";
+    }
+    
+}

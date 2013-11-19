@@ -48,7 +48,7 @@ public class CategoriasBean {
     }
 
     public void setFilter(String filter) {
-        this.filter = filter;        
+        this.filter = filter;
     }
 
     public void removeFilter() {
