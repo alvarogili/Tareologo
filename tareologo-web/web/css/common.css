@@ -138,7 +138,6 @@ a:hover{
 }
 
 .logo{
-    border-right: 2px dashed white;
     color:red;
     font-size: 30px;    
     font-weight: bold;
@@ -146,13 +145,20 @@ a:hover{
     margin-right: 50px;
 }
 
+.menu{
+    font-size: 20px;
+}
+
+.boton{
+    font-size: 18px;
+}
+
 .menu, .boton{  
     background-color: white;
     border: 1px solid grey;
     border-radius: 5px;
     box-shadow: 1px 1px 0px grey;
-    color: #333333;
-    font-size: 20px;
+    color: #333333;    
     font-weight: bold;
     margin-right: 5px;
     padding-left: 10px;

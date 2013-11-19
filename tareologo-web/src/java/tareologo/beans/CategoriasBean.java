@@ -38,8 +38,8 @@ public class CategoriasBean {
         }
         return categorias;
     }
-    
-    public boolean containCategorias(){
+
+    public boolean containCategorias() {
         return getCategorias().size() > 0;
     }
 
@@ -50,8 +50,8 @@ public class CategoriasBean {
     public void setFilter(String filter) {
         this.filter = filter;        
     }
-    
-    public void removeFilter(){
+
+    public void removeFilter() {
         this.filter = null;
     }
 
