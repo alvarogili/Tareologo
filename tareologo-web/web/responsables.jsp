@@ -32,35 +32,43 @@
                     <br>
                     <br>
                 </center>
-                <h:form id="buscar-responsable">
+                <h:form id="buscar">
                     <h:inputText id="filtro" label="Buscar" value="#{ResponsablesBean.filter}" />
                     <h:commandButton type="submit" styleClass="boton" value="Filtrar" action="responsables" />
                     <h:commandLink id="quitar-filtro" styleClass="link" value="Quitar filtro" action="responsables" />
                 </h:form>
-                <h:form id="nuevoResp">
+                <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nuevo" action="agregarResponsable" />  
                 </h:form>
                 <br>
                 <center>                
                     <br>
-                    <div id="lista-responsables">  
+                    <table id="lista-responsables">  
                         <c:choose>
-                            <c:when test="@{ResponsablesBean.responsables.size() == 0}">                        
+                            <c:when test="${empty ResponsablesBean.responsables}">  
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                                 <b style="font-size: 20px;">No se cargaron responsables aún.</b>
                             </c:when>
                             <c:otherwise>
-                                <div class="cabecera">Nombre</div>
-                                <div class="cabecera">Apodo</div>
-                                <div class="cabecera">Email</div>                    
-                                <div class="cabecera-check">Administración</div>
+                                <tr>
+                                    <td class="cabecera">Nombre</td>
+                                    <td class="cabecera">Apodo</td>
+                                    <td class="cabecera">Email</td>                    
+                                    <td class="cabecera-check">Administración</td>
+                                </tr>
                             </c:otherwise>
                         </c:choose>
                         <c:forEach items="#{ResponsablesBean.responsables}" var="responsable" varStatus="status">
-                            <div class="fila">
-                                <div class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.nombre}</div>
-                                <div class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.apodo}</div>
-                                <div class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.email}</div>    
-                                <div class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
+                            <tr class="fila">
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.nombre}</td>
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.apodo}</td>
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.email}</td>    
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>
                                         <h:commandLink action="ResponsablesBean.edit" value="Editar"  >
                                             <f:param name="action" value="edit" />
@@ -70,10 +78,10 @@
                                             <h:outputText value="Eliminar" />                                           
                                         </h:commandLink>
                                     </h:form>
-                                </div>
-                            </div>
+                                </td>
+                            </tr>
                         </c:forEach>
-                    </div>
+                    </table>
                 </center>
             </div>
         </body>

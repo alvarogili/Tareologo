@@ -20,8 +20,7 @@
 }
 
 #lista-responsables{
-    background-color: #CCC;
-    box-shadow: 5px 5px 5px black;
+    width: 80%;
 }
 
 .cabecera{    
@@ -29,6 +28,55 @@
 }
 
 .cabecera-check{
+    width: 15%;
+}
+
+.fila-impar-check a:hover,
+.fila-par-check a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+.fila{
+    height: 1.7em;
+}
+
+.fila-impar{
+    background-color: white;    
+}
+
+.fila-impar-check{
+    background-color: white;    
+}
+
+.fila-impar, .fila-par{
+    display: inline-block;
+    height: 1.5em;
+    width: 27%;
+}
+
+.fila-impar-check, .fila-par-check{
+    display: inline-block;
+    height: 1.5em;
     width: 17.3%;
 }
 
+.fila-impar-check a, .fila-par-check a{
+    display: inline-block;
+    font-size: .85em;
+    padding-left: 1em;
+}
+
+.fila-par{
+    background-color: #cccc92;   
+}
+
+.fila-par-check{
+    background-color: #cccc92;   
+}
+
+@media screen and (max-width: 1000px){
+    #lista-responsables{
+        width: 100%;
+    }
+}

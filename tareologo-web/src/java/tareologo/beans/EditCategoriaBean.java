@@ -1,5 +1,7 @@
 package tareologo.beans;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import tareologo.business.managers.CategoriaManager;
@@ -35,8 +37,12 @@ public class EditCategoriaBean {
         return categoria;
     }
     
-    public String update() throws Exception{
-        categoriaManager.update(categoria);
+    public String update(){
+        try {
+            categoriaManager.update(categoria);
+        } catch (Exception ex) {
+            Logger.getLogger(EditCategoriaBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return "categorias";
     }
     

@@ -2,9 +2,12 @@
 
 package tareologo.beans;
 
-import javax.ejb.EJB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import tareologo.business.managers.ResponsableManager;
+import tareologo.business.model.Responsable;
 
 /**
  *
@@ -15,8 +18,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class ResponsableBean {
       
-    @EJB
-    //private IResponsableDAO responsableDAO;
+    private ResponsableManager responsableManager;
 
     private String nombre;
     private String apodo;
@@ -60,11 +62,15 @@ public class ResponsableBean {
     
     public void guardarResponsable() {
         //agrego el responsable a la lista
-//        Responsable responsable = new Responsable();
-//        responsable.setApodo(getApodo());
-//        responsable.setEmail(getEmail());
-//        responsable.setNombre(getNombre());
-//        responsable.setPathFoto(getPathFoto());
-//        responsableDAO.insertResponsable(responsable);
+        Responsable responsable = new Responsable();
+        responsable.setApodo(getApodo());
+        responsable.setEmail(getEmail());
+        responsable.setNombre(getNombre());
+        responsable.setPathFoto(getPathFoto());
+        try {
+            responsableManager.create(responsable);
+        } catch (Exception ex) {
+            Logger.getLogger(ResponsableBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

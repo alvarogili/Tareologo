@@ -46,7 +46,13 @@
                     <br>
                     <table id="lista-categorias">  
                         <c:choose>
-                            <c:when test="@{!CategoriasBean.containCategorias()}">                        
+                            <c:when test="${empty CategoriasBean.categorias}">       
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                                 <b style="font-size: 20px;">No se cargaron categorías aún.</b>
                             </c:when>
                             <c:otherwise>
