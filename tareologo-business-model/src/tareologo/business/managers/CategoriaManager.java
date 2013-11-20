@@ -43,7 +43,7 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
         if(categoriaEntity != null){
             try {
                 //exists in the DB
-                categoriaDAO.edit(object.getEntity());
+                categoriaDAO.edit(categoriaEntity);
             } catch (Exception ex) {
                 throw new Exception(ex);
             }
@@ -57,7 +57,7 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
         CategoriaEntity categoriaEntity = categoriaDAO.findCategoriaEntityByID(objectID);
         if(categoriaEntity != null){
             try {
-                categoriaDAO.destroy(objectID);
+                categoriaDAO.destroy(categoriaEntity.getId());
             } catch (NonexistentEntityException ex) {
                 throw new Exception(ex);
             }
