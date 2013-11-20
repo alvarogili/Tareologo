@@ -163,7 +163,7 @@ public class ResponsableDAO implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createNamedQuery("ResponsableEntity.findByNombre", ResponsableEntity.class);
-            q.setParameter("nombre", nombre);
+            q.setParameter("nombre", "%" + nombre + "%");
             return q.getResultList();
         } finally {
             em.close();
@@ -180,7 +180,7 @@ public class ResponsableDAO implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createNamedQuery("ResponsableEntity.findByApodo", ResponsableEntity.class);
-            q.setParameter("apodo", apodo);
+            q.setParameter("apodo",  "%" + apodo + "%");
             return q.getResultList();
         } finally {
             em.close();
@@ -197,7 +197,7 @@ public class ResponsableDAO implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createNamedQuery("ResponsableEntity.findByEmail", ResponsableEntity.class);
-            q.setParameter("email", email);
+            q.setParameter("email",  "%" + email + "%");
             return q.getResultList();
         } finally {
             em.close();
