@@ -40,7 +40,7 @@ public class ResponsableEntity implements Serializable {
     @Basic(optional = false)
     @Column(name = "Nombre")
     private String nombre;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Column(name = "Apodo")
     private String apodo;
     @Basic(optional = false)
