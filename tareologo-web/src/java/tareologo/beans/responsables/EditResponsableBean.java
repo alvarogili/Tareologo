@@ -1,4 +1,4 @@
-package tareologo.beans;
+package tareologo.beans.responsables;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

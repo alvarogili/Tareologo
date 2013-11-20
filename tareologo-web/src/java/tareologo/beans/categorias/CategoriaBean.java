@@ -1,4 +1,4 @@
-package tareologo.beans;
+package tareologo.beans.categorias;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
