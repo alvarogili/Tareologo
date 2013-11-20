@@ -86,12 +86,24 @@ public class ResponsableManager extends BaseManager implements IBaseManager<Resp
     public List<Responsable> findByName(String name) {
         ResponsableDAO responsableDAO = new ResponsableDAO(emf);
         List<ResponsableEntity> responsableEntities = responsableDAO.findResponsableEntityByNombre(name);
-        List<Responsable> categorias = new ArrayList<>();
+        List<Responsable> responsables = new ArrayList<>();
         for (ResponsableEntity responsableEntity : responsableEntities) {
-            Responsable categoria = new Responsable();
-            categoria.setEntity(responsableEntity);
-            categorias.add(categoria);
+            Responsable responsable = new Responsable();
+            responsable.setEntity(responsableEntity);
+            responsables.add(responsable);
         }
-        return categorias;
+        return responsables;
+    }
+    
+    public List<Responsable> findByEmail(String email) {
+        ResponsableDAO responsableDAO = new ResponsableDAO(emf);
+        List<ResponsableEntity> responsableEntities = responsableDAO.findResponsableEntityByEmail(email);
+        List<Responsable> responsables = new ArrayList<>();
+        for (ResponsableEntity responsableEntity : responsableEntities) {
+            Responsable responsable = new Responsable();
+            responsable.setEntity(responsableEntity);
+            responsables.add(responsable);
+        }
+        return responsables;
     }
 }
