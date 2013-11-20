@@ -7,7 +7,7 @@
     <html>    
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Agregar responsable</title>
+            <title>Editando responsable</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
             </style>
@@ -38,7 +38,7 @@
                             <h:outputLabel for="nombre" value="Nombre:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="nombre" value="#{ResponsableBean.nombre}" requiredMessage="El campo \"Nombre\" es obligatorio." required="true" />
+                            <h:inputText styleClass="campo" id="nombre" value="#{EditResponsableBean.responsable.nombre}" requiredMessage="El campo \"Nombre\" es obligatorio." required="true" />
                                 <h:message for="nombre" style="color:red; font-size:15px;" />
                         </div>
                         <hr>
@@ -46,14 +46,14 @@
                             <h:outputLabel for="apodo" value="Apodo:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="apodo" value="#{ResponsableBean.apodo}" />
+                            <h:inputText styleClass="campo" id="apodo" value="#{EditResponsableBean.responsable.apodo}" />
                         </div>
                         <hr>                                    
                         <div>
                             <h:outputLabel for="email" value="Email:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="email" value="#{ResponsableBean.email}" requiredMessage="El campo \"Email\" es obligatorio." required="true" />
+                            <h:inputText styleClass="campo" id="email" value="#{EditResponsableBean.responsable.email}" requiredMessage="El campo \"Email\" es obligatorio." required="true" />
                                 <h:message for="email" style="color:red; font-size:15px;" />
                         </div>
                         <hr>    
@@ -61,10 +61,10 @@
                             <h:outputLabel for="foto" value="Imagen:" />
                         </div>
                         <div>              
-                            <h:inputFile id="foto" value="#{ResponsableBean.pathFoto}" />
+                            <h:inputFile id="foto" value="#{EditResponsableBean.responsable.pathFoto}" />
                         </div>                    
                         <hr>  
-                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{ResponsableBean.guardarResponsable()}" action="responsables" />                        
+                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{EditResponsableBean.update()}" action="responsables" />                        
                         <h:commandButton value="Limpiar campos" type="reset" />
                         <br>
                         <br>

@@ -32,30 +32,31 @@
                     <br>
                     <br>
                     <br>
-                    <h:form  id="addCategoria">                        
-                        <br>
-                        <div>
-                            <h:outputLabel for="nombre" value="Nombre:" />
-                        </div>
-                        <div>
-                            <h:inputText styleClass="campo" id="nombre" value="#{CategoriaBean.nombre}" required="true" />
-                        </div>
-                        <hr>
-                        <div>
-                            <h:outputLabel for="descripcion" value="Descripcion:" />
-                        </div>
-                        <div>
-                            <h:inputText styleClass="campo" id="descripcion" value="#{CategoriaBean.descripcion}" />
-                        </div>
-                        <hr>                                    
-                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
-                        <h:commandButton value="Limpiar campos" type="reset" />
-                        <h:commandButton value="  Cancelar  "  action="categorias" />
-                        <br>
-                        <br>
-                    </h:form>
-                </center>
-            </div>
-        </body>
+                        <h:form  id="addCategoria" >                        
+                            <br>
+                            <div>
+                                <h:outputLabel for="nombre" value="Nombre:" />
+                            </div>
+                            <div>
+                                <h:inputText styleClass="campo" id="nombre" value="#{CategoriaBean.nombre}" 
+                                             requiredMessage="El campo \"Nombre\" es obligatorio." required="true" />
+                                <h:message for="nombre" style="color:red; font-size:15px;" />
+                            </div>
+                            <hr>
+                            <div>
+                                <h:outputLabel for="descripcion" value="Descripcion:" />
+                            </div>
+                            <div>
+                                <h:inputText styleClass="campo" id="descripcion" value="#{CategoriaBean.descripcion}" />
+                            </div>
+                            <hr>                                    
+                            <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
+                            <h:commandButton value="  Cancelar  "  action="categorias" />
+                            <br>
+                            <br>
+                        </h:form>
+                    </center>
+                </div>
+            </body>
     </f:view>
 </html>

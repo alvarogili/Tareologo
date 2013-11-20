@@ -18,7 +18,7 @@ import tareologo.business.model.Responsable;
 @RequestScoped
 public class ResponsableBean {
       
-    private ResponsableManager responsableManager;
+    private ResponsableManager responsableManager = new ResponsableManager();
 
     private String nombre;
     private String apodo;

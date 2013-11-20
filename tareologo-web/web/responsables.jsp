@@ -33,9 +33,13 @@
                     <br>
                 </center>
                 <h:form id="buscar">
+                    Filtrar por 
+                    <h:selectOneMenu id="tipoFiltro" value="#{ResponsablesBean.selectedItem}">
+                        <f:selectItems value="#{ResponsablesBean.items}" />
+                    </h:selectOneMenu>
                     <h:inputText id="filtro" label="Buscar" value="#{ResponsablesBean.filter}" />
-                    <h:commandButton type="submit" styleClass="boton" value="Filtrar" action="responsables" />
-                    <h:commandLink id="quitar-filtro" styleClass="link" value="Quitar filtro" action="responsables" />
+                    <h:commandButton type="submit" styleClass="boton" value="Filtrar" action="responsables" />                   
+                    <h:commandLink id="quitar-filtro" styleClass="link" value="Quitar filtro" action="#{ResponsablesBean.removeFilter()}" />
                 </h:form>
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nuevo" action="agregarResponsable" />  
@@ -70,10 +74,7 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${responsable.email}</td>    
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>
-                                        <h:commandLink action="ResponsablesBean.edit" value="Editar"  >
-                                            <f:param name="action" value="edit" />
-                                            <f:param name="id" value="#{responsable.id}" />
-                                        </h:commandLink>
+                                        <h:commandLink action="#{EditResponsableBean.edit(responsable)}" value="Editar" />
                                         <h:commandLink action="#{ResponsablesBean.remove(responsable.id)}" onclick="if(!confirm('¿Realmente desea borrar este responsable?')) return false">
                                             <h:outputText value="Eliminar" />                                           
                                         </h:commandLink>

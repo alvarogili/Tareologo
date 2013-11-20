@@ -13,7 +13,7 @@
             </style>
             <style type="text/css" media="screen">
                 <%@ include file="css/categorias.css" %>
-</style>
+            </style>
         </head>
         <body>
             <nav>       
@@ -69,9 +69,7 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${categoria.descripcion}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>
-                                        <h:commandLink action="#{EditCategoriaBean.edit(categoria)}" value="Editar"  >
-                                            <f:param name="categoria" value="@{categoria}" />
-                                        </h:commandLink>
+                                        <h:commandLink action="#{EditCategoriaBean.edit(categoria)}" value="Editar" />
                                         <h:commandLink action="#{CategoriasBean.remove(categoria.id)}" onclick="if(!confirm('¿Realmente desea borrar este categoría?')) return false">
                                             <h:outputText value="Eliminar" />                                           
                                         </h:commandLink>

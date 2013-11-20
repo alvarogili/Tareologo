@@ -4,10 +4,12 @@
  */
 package tareologo.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 import tareologo.business.managers.ResponsableManager;
 import tareologo.business.model.Responsable;
 
@@ -21,6 +23,7 @@ public class ResponsablesBean {
 
     private ResponsableManager responsableManager = new ResponsableManager();
     private String filter;
+    private SelectItem selectedItem;
 
     /**
      * Creates a new instance of ResponsablesBean
@@ -32,10 +35,10 @@ public class ResponsablesBean {
      * Borra un responsable de la lista
      *
      * @param id ID del responsable a borrar
-     * @return 
+     * @return
      */
-    public void remove(long id) {
-//        responsableDAO.removeResponsable(id);        
+    public void remove(int id) {
+        responsableManager.delete(id);
     }
 
     public List<Responsable> getResponsables() {
@@ -43,11 +46,18 @@ public class ResponsablesBean {
             //No se aplicó un filtro
             return responsableManager.getAll();
         } else {
-            return responsableManager.findByName(filter);
+            if (selectedItem.getValue().equals("Nombre")) {
+                return responsableManager.findByName(filter);
+            } else {
+                return responsableManager.findByEmail(filter);
+            }
         }
     }
 
-   
+    public void removeFilter() {
+        this.filter = null;
+        this.selectedItem = null;
+    }
 
     public void setFilter(String filter) {
         this.filter = filter;
@@ -55,5 +65,20 @@ public class ResponsablesBean {
 
     public String getFilter() {
         return filter;
+    }
+
+    public SelectItem getSelectedItem() {
+        return selectedItem;
+    }
+
+    public void setSelectedItem(SelectItem item) {
+        this.selectedItem = item;
+    }
+
+    public List<SelectItem> getItems() {
+        List<SelectItem> items = new ArrayList<>();
+        items.add(new SelectItem("Nombre"));
+        items.add(new SelectItem("Email"));
+        return items;
     }
 }

@@ -38,7 +38,8 @@
                             <h:outputLabel for="nombre" value="Nombre:" />
                         </div>
                         <div>
-                            <h:inputText styleClass="campo" id="nombre" value="#{EditCategoriaBean.categoria.nombre}" required="true" />
+                            <h:inputText styleClass="campo" id="nombre" value="#{EditCategoriaBean.categoria.nombre}" requiredMessage="El campo \"Nombre\" es obligatorio." required="true" />
+                                <h:message for="nombre" style="color:red; font-size:15px;" />
                         </div>
                         <hr>
                         <div>

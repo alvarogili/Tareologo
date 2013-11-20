@@ -58,7 +58,7 @@
 .fila-impar-check, .fila-par-check{
     display: inline-block;
     height: 1.5em;
-    width: 17.3%;
+    width: 15%;
 }
 
 .fila-impar-check a, .fila-par-check a{
