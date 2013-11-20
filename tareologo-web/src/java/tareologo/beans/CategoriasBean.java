@@ -29,14 +29,12 @@ public class CategoriasBean {
     public CategoriasBean() {
     }
 
-    public List<Categoria> getCategorias() {
-        List<Categoria> categorias;
+    public List<Categoria> getCategorias() {       
         if (filter == null) {
-            categorias = categoriaManager.getAll();
+            return categoriaManager.getAll();
         } else {
-            categorias = categoriaManager.findByName(filter);
+            return categoriaManager.findByName(filter);
         }
-        return categorias;
     }
 
     public boolean containCategorias() {

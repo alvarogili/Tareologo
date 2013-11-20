@@ -8,6 +8,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import tareologo.business.managers.ResponsableManager;
 import tareologo.business.model.Responsable;
 
 /**
@@ -18,8 +19,7 @@ import tareologo.business.model.Responsable;
 @SessionScoped
 public class ResponsablesBean {
 
-//    @EJB
-//    private IResponsableDAO responsableDAO;
+    private ResponsableManager responsableManager = new ResponsableManager();
     private String filter;
 
     /**
@@ -39,15 +39,12 @@ public class ResponsablesBean {
     }
 
     public List<Responsable> getResponsables() {
-//        if (filter == null) {
-//            //No se aplicó un filtro
-//            return responsableDAO.getResponsables();
-//        } else {
-//            List<Responsable> result = responsableDAO.filterResponsables(filter);
-//            filter = null;
-//            return result;
-//        }
-        return null;
+        if (filter == null) {
+            //No se aplicó un filtro
+            return responsableManager.getAll();
+        } else {
+            return responsableManager.findByName(filter);
+        }
     }
 
    
