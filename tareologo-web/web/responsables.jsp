@@ -35,12 +35,12 @@
                 <h:form id="buscar">
                     Filtrar por 
                     <h:selectOneMenu id="tipoFiltro" value="#{ResponsablesBean.selectedItem}">
-                        <f:selectItems value="#{ResponsablesBean.items}" />
-                    </h:selectOneMenu>
+                        <f:selectItems value="#{ResponsablesBean.items}" />                                
+                    </h:selectOneMenu>                    
                     <h:inputText id="filtro" label="Buscar" value="#{ResponsablesBean.filter}" />
                     <h:commandButton type="submit" styleClass="boton" value="Filtrar" action="responsables" />                   
                     <h:commandLink id="quitar-filtro" styleClass="link" value="Quitar filtro" action="#{ResponsablesBean.removeFilter()}" />
-                </h:form>
+                </h:form>                    
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nuevo" action="agregarResponsable" />  
                 </h:form>
