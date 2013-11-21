@@ -65,7 +65,7 @@
                         </div>                    
                         <hr>  
                         <h:commandButton type="submit" value="  Guardar  " actionListener="#{EditResponsableBean.update()}" action="responsables" />                        
-                        <h:commandButton value="Limpiar campos" type="reset" />
+                        <h:commandButton value="  Cancelar  "  action="responsables" immediate="true" />
                         <br>
                         <br>
                     </h:form>

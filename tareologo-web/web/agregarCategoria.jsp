@@ -51,7 +51,8 @@
                             </div>
                             <hr>                                    
                             <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
-                            <h:commandButton value="  Cancelar  "  action="categorias" />
+                            <h:commandButton value="Limpiar campos" type="reset" immediate="true" />
+                            <h:commandButton value="  Cancelar  "  action="categorias" immediate="true" />
                             <br>
                             <br>
                         </h:form>

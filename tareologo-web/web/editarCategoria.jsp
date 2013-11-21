@@ -50,7 +50,7 @@
                         </div>
                         <hr>                                    
                         <h:commandButton type="submit" value="  Guardar  " actionListener="#{EditCategoriaBean.update()}" action="categorias" />                        
-                        <h:commandButton value="  Cancelar  "  action="categorias" />
+                        <h:commandButton value="  Cancelar  "  action="categorias" immediate="true" />
                         <br>
                         <br>
                     </h:form>
