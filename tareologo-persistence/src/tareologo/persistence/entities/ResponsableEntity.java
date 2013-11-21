@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "ResponsableEntity.findAll", query = "SELECT r FROM ResponsableEntity r"),
     @NamedQuery(name = "ResponsableEntity.findById", query = "SELECT r FROM ResponsableEntity r WHERE r.id = :id"),
-    @NamedQuery(name = "ResponsableEntity.findByNombre", query = "SELECT r FROM ResponsableEntity r WHERE r.nombre = :nombre"),
-    @NamedQuery(name = "ResponsableEntity.findByApodo", query = "SELECT r FROM ResponsableEntity r WHERE r.apodo = :apodo"),
-    @NamedQuery(name = "ResponsableEntity.findByEmail", query = "SELECT r FROM ResponsableEntity r WHERE r.email = :email")})
+    @NamedQuery(name = "ResponsableEntity.findByNombre", query = "SELECT r FROM ResponsableEntity r WHERE r.nombre like :nombre"),
+    @NamedQuery(name = "ResponsableEntity.findByApodo", query = "SELECT r FROM ResponsableEntity r WHERE r.apodo like :apodo"),
+    @NamedQuery(name = "ResponsableEntity.findByEmail", query = "SELECT r FROM ResponsableEntity r WHERE r.email like :email")})
 public class ResponsableEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

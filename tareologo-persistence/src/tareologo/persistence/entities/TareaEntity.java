@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "TareaEntity.findAll", query = "SELECT t FROM TareaEntity t"),
     @NamedQuery(name = "TareaEntity.findById", query = "SELECT t FROM TareaEntity t WHERE t.id = :id"),
-    @NamedQuery(name = "TareaEntity.findByTitulo", query = "SELECT t FROM TareaEntity t WHERE t.titulo = :titulo"),
+    @NamedQuery(name = "TareaEntity.findByTitulo", query = "SELECT t FROM TareaEntity t WHERE t.titulo like :titulo"),
     @NamedQuery(name = "TareaEntity.findByPrioridad", query = "SELECT t FROM TareaEntity t WHERE t.prioridad = :prioridad"),
     @NamedQuery(name = "TareaEntity.findByVencimiento", query = "SELECT t FROM TareaEntity t WHERE t.vencimiento = :vencimiento"),
     @NamedQuery(name = "TareaEntity.findByCompletado", query = "SELECT t FROM TareaEntity t WHERE t.completado = :completado")})
