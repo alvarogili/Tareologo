@@ -1,11 +1,12 @@
 Categorias:
 
--Editar 
--ver que guarde correctamente caractéres españoles
+-no anda cancelar en agregarCategoria
+-ver que guarde correctamente carácteres españoles
 
 Responsables:
 
--rediseño
+-editar
+-busquedas: falla
 
 Tareas:
 
