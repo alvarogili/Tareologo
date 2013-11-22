@@ -47,5 +47,13 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/editarCategoria.jsp</to-view-id>
         </navigation-case>                       
-    </navigation-rule>    
+    </navigation-rule> 
+    
+    <navigation-rule>
+        <from-view-id>/index.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>agregarTarea</from-outcome>
+            <to-view-id>/agregarTarea.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>   
 </faces-config>

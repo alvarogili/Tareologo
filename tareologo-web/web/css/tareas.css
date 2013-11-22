@@ -1,0 +1,98 @@
+#addTarea{
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px grey;    
+    max-width: 800px;
+}
+
+#addTarea div{    
+    display: inline-block;
+    text-align: left; 
+    width: 300px;      
+}
+
+#lista-tareas{
+    width: 80%;
+}
+
+.cabecera{    
+    width: 12%;
+}
+
+.columna-titulo{
+    background-color: #3333ff;
+    color: white;
+    display: inline-block;
+    font-size: 1.2em;
+    height: 1.3em;
+    text-align: center;
+}
+
+.cabecera-check{
+    width: 15%;
+}
+
+.campo{
+    width: 100%;
+}
+
+.columna-titulo{
+    width: 31%;
+}
+
+.fila-impar-check a:hover,
+.fila-par-check a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+.fila{
+    height: 1.7em;
+}
+
+.fila-impar, .fila-titulo-impar{
+    background-color: white;    
+}
+
+.fila-impar-check{
+    background-color: white;    
+}
+
+.fila-par, .fila-impar{
+    width: 12%;
+}
+
+.fila-impar, .fila-par, .fila-titulo-impar, .fila-titulo-par{
+    display: inline-block;
+    height: 1.5em;    
+}
+
+.fila-impar-check, .fila-par-check{
+    display: inline-block;
+    height: 1.5em;
+    width: 15%;
+}
+
+.fila-impar-check a, .fila-par-check a{
+    display: inline-block;
+    font-size: .85em;
+    padding-left: 1em;
+}
+
+.fila-par, .fila-titulo-par{
+    background-color: #cccc92;   
+}
+
+.fila-par-check{
+    background-color: #cccc92;   
+}
+
+.fila-titulo-impar, .fila-titulo-par{
+    width: 31%;
+}
+
+@media screen and (max-width: 1000px){
+    #lista-tareas{
+        width: 100%;
+    }
+}
+
