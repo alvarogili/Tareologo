@@ -26,10 +26,14 @@
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/resposables.jsp</from-view-id>
+        <from-view-id>/responsables.jsp</from-view-id>
         <navigation-case>
             <from-outcome>agregarResponsable</from-outcome>
             <to-view-id>/agregarResponsable.jsp</to-view-id>
+        </navigation-case>               
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/editarResponsable.jsp</to-view-id>
         </navigation-case>               
     </navigation-rule>
     

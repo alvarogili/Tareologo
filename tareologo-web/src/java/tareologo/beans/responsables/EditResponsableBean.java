@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import tareologo.business.managers.ResponsableManager;
-import tareologo.business.managers.ResponsableManager;
 import tareologo.business.model.Responsable;
 
 /**
@@ -38,13 +37,12 @@ public class EditResponsableBean {
         return responsable;
     }
     
-    public String update(){
+    public void update(){
         try {
             responsableManager.update(responsable);
         } catch (Exception ex) {
             Logger.getLogger(EditResponsableBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "responsables";
     }
     
 }

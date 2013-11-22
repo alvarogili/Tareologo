@@ -7,7 +7,7 @@
     <html>    
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Editando responsable</title>
+            <title>Editando responsable "${EditResponsableBean.responsable.nombre}"</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
             </style>

@@ -37,13 +37,12 @@ public class EditCategoriaBean {
         return categoria;
     }
     
-    public String update(){
+    public void update(){
         try {
             categoriaManager.update(categoria);
         } catch (Exception ex) {
             Logger.getLogger(EditCategoriaBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "categorias";
     }
     
 }
