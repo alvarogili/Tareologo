@@ -48,7 +48,7 @@ public class ResponsableManager extends BaseManager implements IBaseManager<Resp
         ResponsableEntity responsableEntity = responsableDAO.findResponsableEntityByID(object.getEntity().getId());
         if (responsableEntity != null) {
             try {
-                responsableDAO.edit(responsableEntity);
+                responsableDAO.edit(object.getEntity());
             } catch (NonexistentEntityException ex) {
                 Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
