@@ -90,17 +90,21 @@
                             <br />
                             <h:inputTextarea id="texto" value="#{TareaBean.texto}" style="width: 100%;" rows="20"  />
                         </div>
-                        <div style="width: 75%;">
-                            <h:outputLabel for="responsables" value="Responsables: " />
-                            <h:selectOneMenu id="responsables" value="#{TareaBean.responsable}">
-                                <f:selectItems value="#{TareasBean.completadoItems}" />                         
-                            </h:selectOneMenu>
-                            <h:outputLabel for="categorias" value="Categorías " />
-                            <h:selectOneMenu id="categorias" value="#{TareaBean.categoria}">
-                                <f:selectItems value="#{TareasBean.completadoItems}" />                             
-                            </h:selectOneMenu>
-                        </div>
                         <hr /> 
+                        <div style="width: 75%;display: inline-block;">
+                            <div style="padding-left: 5px; width: 49%;">
+                                <h:outputLabel for="responsable" value="Responsable: " />
+                                <h:selectOneMenu id="responsable" value="#{TareaBean.responsable}">
+                                    <f:selectItems value="#{ResponsablesBean.responsablesItems}" />                         
+                                </h:selectOneMenu>
+                            </div>
+                            <div style="text-align: right; width: 49%;">
+                                <h:outputLabel for="categoria" value="Categoría " />
+                                <h:selectOneMenu id="categoria" value="#{TareaBean.categoria}">
+                                    <f:selectItems value="#{CategoriasBean.categoriasItems}" />                             
+                                </h:selectOneMenu>
+                            </div>
+                        </div>                        
                         <hr /> 
                         <h:commandButton type="submit" value="  Guardar  " actionListener="#{TareaBean.guardarTarea()}" action="categorias" />                        
                         <h:commandButton value="Limpiar campos" type="reset" immediate="true" />

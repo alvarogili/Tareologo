@@ -4,11 +4,13 @@
  */
 package tareologo.beans.categorias;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 import tareologo.business.managers.CategoriaManager;
 import tareologo.business.model.Categoria;
 
@@ -35,6 +37,20 @@ public class CategoriasBean {
         } else {
             return categoriaManager.findByName(filter);
         }
+    }
+    
+    /**
+     * Return a list of categorias for a combo box
+     *
+     * @return
+     */
+    public List<SelectItem> getCategoriasItems() {
+        List<SelectItem> categoriasItems = new ArrayList<>();
+        List<Categoria> categorias = categoriaManager.getAll();
+        for(Categoria categoria: categorias){
+            categoriasItems.add(new SelectItem(categoria.getNombre()));
+        }
+        return categoriasItems;
     }
 
     public boolean containCategorias() {

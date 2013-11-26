@@ -61,9 +61,23 @@ public class ResponsablesBean {
 
     public List<SelectItem> getItems() {
         List<SelectItem> items = new ArrayList<>();
-        items.add(new SelectItem("Nombre","Nombre"));
-        items.add(new SelectItem("Email","Email"));
+        items.add(new SelectItem("Nombre", "Nombre"));
+        items.add(new SelectItem("Email", "Email"));
         return items;
+    }
+
+    /**
+     * Return a list of responsables for a combo box
+     *
+     * @return
+     */
+    public List<SelectItem> getResponsablesItems() {
+        List<SelectItem> responsablesItems = new ArrayList<>();
+        List<Responsable> responsables = responsableManager.getAll();
+        for(Responsable responsable: responsables){
+            responsablesItems.add(new SelectItem(responsable.getNombre()));
+        }
+        return responsablesItems;
     }
 
     public String getFilter() {
@@ -81,6 +95,4 @@ public class ResponsablesBean {
     public void setSelectedItem(String selectedItem) {
         this.selectedItem = selectedItem;
     }
-    
-    
 }
