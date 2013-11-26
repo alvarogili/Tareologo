@@ -73,11 +73,11 @@
                             };
                         </script>
                         <div>
-                            <h:outputLabel for="vencimiento" value="Vencimiento:" />
-                            <p:calendar locale="es" showButtonPanel="true" navigator="true" value="#{TareaBean.vencimiento}" id="vencimiento"  />  
+                            <h:outputLabel for="vencimiento" value="Vencimiento: " />
+                            <p:calendar locale="es" showButtonPanel="true" navigator="true" value="#{TareaBean.vencimiento}" id="vencimiento" style="font-size: 11px;" />  
                         </div>
                         <hr /> 
-                        <div>
+                        <div style="width: 75%;">
                             <h:outputLabel for="completado" value="Porcentaje de completado: " />
                             <h:selectOneMenu id="completado" value="#{TareaBean.completado}">
                                 <f:selectItems value="#{TareasBean.completadoItems}" />                                
@@ -85,7 +85,24 @@
                             %
                         </div>
                         <hr /> 
-                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
+                        <div style="width: 75%;">
+                            <h:outputLabel for="texto" value="Texto:" />
+                            <br />
+                            <h:inputTextarea id="texto" value="#{TareaBean.texto}" style="width: 100%;" rows="20"  />
+                        </div>
+                        <div style="width: 75%;">
+                            <h:outputLabel for="responsables" value="Responsables: " />
+                            <h:selectOneMenu id="responsables" value="#{TareaBean.responsable}">
+                                <f:selectItems value="#{TareasBean.completadoItems}" />                         
+                            </h:selectOneMenu>
+                            <h:outputLabel for="categorias" value="Categorías " />
+                            <h:selectOneMenu id="categorias" value="#{TareaBean.categoria}">
+                                <f:selectItems value="#{TareasBean.completadoItems}" />                             
+                            </h:selectOneMenu>
+                        </div>
+                        <hr /> 
+                        <hr /> 
+                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{TareaBean.guardarTarea()}" action="categorias" />                        
                         <h:commandButton value="Limpiar campos" type="reset" immediate="true" />
                         <h:commandButton value="  Cancelar  "  action="index" immediate="true" />
                         <br />
