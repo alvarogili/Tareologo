@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Agregar Tarea</title>
+            <link type="text/css" rel="stylesheet" href="css/common.css" />
+            <link type="text/css" rel="stylesheet" href="css/tareas.css" />
+        </h:head>
+        <h:body>
+            <nav>  
+                <h:form>
+                    <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
+                </h:form>
+                <h:form id="formMenu">                    
+                    <h:commandLink styleClass="menu" action="index" value="Inicio" style="background-color: #333333; color:white; font-style: italic;" />
+                    <h:commandLink styleClass="menu" action="responsables" value="Responsables" />
+                    <h:commandLink styleClass="menu" action="categorias" value="Categorías" />
+                </h:form>                
+            </nav>
+            <div id="contenido">
+                <center>
+                    <b style="font-size: 20px;">Agregando una tarea</b>            
+                    <br />
+                    <br />
+                    <br />
+                    <h:form  id="addTarea" >                        
+                        <br />
+                        <div>
+                            <h:outputLabel for="titulo" value="Titulo:" />
+                        </div>
+                        <div>
+                            <h:inputText styleClass="campo" id="titulo" value="#{TareaBean.titulo}" 
+                                         requiredMessage="El campo 'Titulo' es obligatorio." required="true" />
+                            <h:message for="titulo" style="color:red; font-size:15px;" />
+                        </div>
+                        <hr />
+                        <div>
+                            <h:outputLabel for="prioridad" value="Prioridad: " />
+                            <h:selectOneMenu id="prioridad" value="">
+                                <f:selectItems value="#{TareasBean.itemsPrioridad}" />                                
+                            </h:selectOneMenu>
+                        </div>
+                        <script>
+                            PrimeFaces.locales['es'] = {
+                                closeText: 'Cerrar',
+                                prevText: 'Anterior',
+                                nextText: 'Siguiente',
+                                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                                dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                                weekHeader: 'Semana',
+                                firstDay: 1,
+                                isRTL: false,
+                                showMonthAfterYear: false,
+                                yearSuffix: '',
+                                timeOnlyTitle: 'Sólo hora',
+                                timeText: 'Tiempo',
+                                hourText: 'Hora',
+                                minuteText: 'Minuto',
+                                secondText: 'Segundo',
+                                currentText: 'Fecha actual',
+                                ampm: false,
+                                month: 'Mes',
+                                week: 'Semana',
+                                day: 'Día',
+                                allDayText: 'Todo el día'
+                            };
+                        </script>
+                        <div>
+                            <h:outputLabel for="vencimiento" value="Vencimiento:" />
+                            <p:calendar locale="es" showButtonPanel="true" navigator="true" value="#{TareaBean.vencimiento}" id="vencimiento"  />  
+                        </div>
+                        <hr /> 
+                        <div>
+                            <h:outputLabel for="completado" value="Porcentaje de completado: " />
+                            <h:selectOneMenu id="completado" value="#{TareaBean.completado}">
+                                <f:selectItems value="#{TareasBean.completadoItems}" />                                
+                            </h:selectOneMenu>
+                            %
+                        </div>
+                        <hr /> 
+                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{CategoriaBean.guardarCategoria()}" action="categorias" />                        
+                        <h:commandButton value="Limpiar campos" type="reset" immediate="true" />
+                        <h:commandButton value="  Cancelar  "  action="index" immediate="true" />
+                        <br />
+                        <br />
+                    </h:form>
+                </center>
+            </div>
+        </h:body>
+    </f:view>
+</html>

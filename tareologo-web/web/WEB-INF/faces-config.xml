@@ -11,6 +11,7 @@
         <from-view-id>/categorias.jsp</from-view-id>
         <from-view-id>/agregarCategoria.jsp</from-view-id>
         <from-view-id>/editarCategoria.jsp</from-view-id>
+        <from-view-id>/agregarTarea.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>responsables</from-outcome>
             <to-view-id>/responsables.jsp</to-view-id> 
@@ -53,7 +54,7 @@
         <from-view-id>/index.jsp</from-view-id>
         <navigation-case>
             <from-outcome>agregarTarea</from-outcome>
-            <to-view-id>/agregarTarea.jsp</to-view-id>
+            <to-view-id>/agregarTarea.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>   
 </faces-config>
