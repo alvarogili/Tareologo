@@ -36,11 +36,11 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
         entity.setTexto(texto);
     }
 
-    public int getPrioridad() {
+    public String getPrioridad() {
         return entity.getPrioridad();
     }
 
-    public void setPrioridad(int prioridad) {
+    public void setPrioridad(String prioridad) {
         entity.setPrioridad(prioridad);
     }
 
