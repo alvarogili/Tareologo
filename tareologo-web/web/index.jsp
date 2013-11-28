@@ -6,7 +6,7 @@
 <f:view>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Tareólogo</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
@@ -64,11 +64,15 @@
                             </c:otherwise>
                         </c:choose>
                         <c:forEach items="${TareasBean.tareas}" var="tarea" varStatus="status">
-                            <tr class="fila">
+                            <tr class="fila">                                
                                 <td class="${status.count % 2 == 0? "fila-titulo-par": "fila-titulo-impar"}">${tarea.titulo}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.responsable.name}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.categoria.name}</td>
-                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.vencimiento}</td>
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">
+                                    <h:outputText value="#{tarea.vencimiento}">
+                                        <f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+                                    </h:outputText>
+                                </td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.completado}%</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>

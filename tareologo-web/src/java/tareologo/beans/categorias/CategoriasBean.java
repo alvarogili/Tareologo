@@ -48,7 +48,7 @@ public class CategoriasBean {
         List<SelectItem> categoriasItems = new ArrayList<>();
         List<Categoria> categorias = categoriaManager.getAll();
         for(Categoria categoria: categorias){
-            categoriasItems.add(new SelectItem(categoria.getNombre()));
+            categoriasItems.add(new SelectItem(categoria.getId().toString(), categoria.getNombre()));
         }
         return categoriasItems;
     }

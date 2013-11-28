@@ -40,7 +40,7 @@
                         <hr />
                         <div>
                             <h:outputLabel for="prioridad" value="Prioridad: " />
-                            <h:selectOneMenu id="prioridad" value="">
+                            <h:selectOneMenu id="prioridad" value="#{TareaBean.prioridad}">
                                 <f:selectItems value="#{TareasBean.itemsPrioridad}" />                                
                             </h:selectOneMenu>
                         </div>
@@ -106,7 +106,7 @@
                             </div>
                         </div>                        
                         <hr /> 
-                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{TareaBean.guardarTarea()}" action="categorias" />                        
+                        <h:commandButton type="submit" value="  Guardar  " actionListener="#{TareaBean.guardarTarea()}" action="index" />                        
                         <h:commandButton value="Limpiar campos" type="reset" immediate="true" />
                         <h:commandButton value="  Cancelar  "  action="index" immediate="true" />
                         <br />

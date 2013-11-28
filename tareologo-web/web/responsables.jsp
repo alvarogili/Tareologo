@@ -1,12 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <f:view>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Responsables</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
@@ -18,12 +17,12 @@
         <body>
             <nav>                                         
                 <h:form>
-                    <h:commandLink styleClass="logo" action="index" value="TareÃ³logo" />
+                    <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
                 </h:form>
                 <h:form id="formMenu">                    
                     <h:commandLink styleClass="menu" action="index" value="Inicio"/>
                     <h:commandLink styleClass="menu" action="responsables" value="Responsables" style="background-color: #333333; color:white; font-style: italic;" />
-                    <h:commandLink styleClass="menu" action="categorias" value="CategorÃ­as" />
+                    <h:commandLink styleClass="menu" action="categorias" value="Categorías" />
                 </h:form> 
             </nav>
             <div id="contenido">
@@ -56,14 +55,14 @@
                                 <br>
                                 <br>
                                 <br>
-                                <b style="font-size: 20px;">No se cargaron responsables aÃºn.</b>
+                                <b style="font-size: 20px;">No se cargaron responsables aún.</b>
                             </c:when>
                             <c:otherwise>
                                 <tr>
                                     <td class="cabecera">Nombre</td>
                                     <td class="cabecera">Apodo</td>
                                     <td class="cabecera">Email</td>                    
-                                    <td class="cabecera-check">AdministraciÃ³n</td>
+                                    <td class="cabecera-check">Administración</td>
                                 </tr>
                             </c:otherwise>
                         </c:choose>
@@ -75,7 +74,7 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>
                                         <h:commandLink action="#{EditResponsableBean.edit(responsable)}" value="Editar" />
-                                        <h:commandLink action="#{ResponsablesBean.remove(responsable.id)}" onclick="if(!confirm('Â¿Realmente desea borrar este responsable?')) return false">
+                                        <h:commandLink action="#{ResponsablesBean.remove(responsable.id)}" onclick="if(!confirm('¿Realmente desea borrar este responsable?')) return false">
                                             <h:outputText value="Eliminar" />                                           
                                         </h:commandLink>
                                     </h:form>

@@ -5,9 +5,12 @@ package tareologo.beans.tareas;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import tareologo.business.managers.CategoriaManager;
+import tareologo.business.managers.ResponsableManager;
 import tareologo.business.managers.TareaManager;
 import tareologo.business.model.Categoria;
 import tareologo.business.model.Responsable;
+import tareologo.business.model.Tarea;
 
 /**
  *
@@ -22,11 +25,11 @@ public class TareaBean {
 
     private String titulo;
     private String texto;
-    private int prioridad;
+    private String prioridad;
     private Date vencimiento;
     private float completado;
-    private Categoria categoria;
-    private Responsable responsable;
+    private String categoria;
+    private String responsable;
 
     public String getTitulo() {
         return titulo;
@@ -44,11 +47,11 @@ public class TareaBean {
         this.texto = texto;
     }
 
-    public int getPrioridad() {
+    public String getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(int prioridad) {
+    public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
 
@@ -68,23 +71,33 @@ public class TareaBean {
         this.completado = completado;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public Responsable getResponsable() {
+    public String getResponsable() {
         return responsable;
     }
 
-    public void setResponsable(Responsable responsable) {
+    public void setResponsable(String responsable) {
         this.responsable = responsable;
-    }        
+    }          
     
-    public void guardarTarea() {
-        
+    public void guardarTarea() throws Exception {
+        Tarea tarea = new Tarea();
+         CategoriaManager categoriaManager = new CategoriaManager();
+        tarea.setCategoria(categoriaManager.retrieve(new Integer(categoria)));
+        tarea.setCompletado(completado);
+        tarea.setPrioridad(prioridad);
+        ResponsableManager responsableManager = new ResponsableManager();
+        tarea.setResponsable(responsableManager.retrieve(new Integer(responsable)));
+        tarea.setTexto(texto);
+        tarea.setTitulo(titulo);
+        tarea.setVencimiento(vencimiento);
+        tareaManager.create(tarea);
     }
 }

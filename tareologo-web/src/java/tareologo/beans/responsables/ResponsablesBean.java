@@ -75,7 +75,7 @@ public class ResponsablesBean {
         List<SelectItem> responsablesItems = new ArrayList<>();
         List<Responsable> responsables = responsableManager.getAll();
         for(Responsable responsable: responsables){
-            responsablesItems.add(new SelectItem(responsable.getNombre()));
+            responsablesItems.add(new SelectItem(responsable.getId().toString(), responsable.getNombre()));
         }
         return responsablesItems;
     }
