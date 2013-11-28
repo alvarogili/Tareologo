@@ -50,7 +50,7 @@ public class TareaDAOTest {
         tareaEntity = new TareaEntity();
         tareaEntity.setTitulo("titulo");
         tareaEntity.setCompletado(0);
-        tareaEntity.setPrioridad(1);
+        tareaEntity.setPrioridad("Baja");
         tareaEntity.setCategoria(categoriaEntity);
         tareaEntity.setResponsable(responsableEntity);
     }
@@ -142,7 +142,7 @@ public class TareaDAOTest {
         TareaEntity tareaEntity2 = new TareaEntity();
         tareaEntity2.setTitulo("titulo2");
         tareaEntity2.setCompletado(0);
-        tareaEntity2.setPrioridad(1);
+        tareaEntity2.setPrioridad("Baja");
         tareaEntity2.setCategoria(categoriaEntity);
         tareaEntity2.setResponsable(responsableEntity);
         tareaDAO.create(tareaEntity2);

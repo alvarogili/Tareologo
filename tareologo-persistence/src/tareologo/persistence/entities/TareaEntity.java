@@ -42,7 +42,7 @@ public class TareaEntity implements Serializable {
     private Integer id;
     private String titulo;
     private String texto;
-    private int prioridad;
+    private String prioridad;
     private Date vencimiento;
     private float completado;
     private CategoriaEntity categoria;
@@ -55,7 +55,7 @@ public class TareaEntity implements Serializable {
         this.id = id;
     }
 
-    public TareaEntity(Integer id, String titulo, int prioridad, float completado) {
+    public TareaEntity(Integer id, String titulo, String prioridad, float completado) {
         this.id = id;
         this.titulo = titulo;
         this.prioridad = prioridad;
@@ -95,11 +95,11 @@ public class TareaEntity implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "Prioridad")
-    public int getPrioridad() {
+    public String getPrioridad() {
         return prioridad;
     }
 
-    public void setPrioridad(int prioridad) {
+    public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
 
