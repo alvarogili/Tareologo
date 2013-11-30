@@ -1,5 +1,6 @@
 package tareologo.business.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import tareologo.persistence.entities.TareaEntity;
 
@@ -44,8 +45,10 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
         entity.setPrioridad(prioridad);
     }
 
-    public Date getVencimiento() {
-        return entity.getVencimiento();
+    public String getVencimiento() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	String resultado = formato.format(entity.getVencimiento());
+        return resultado;
     }
 
     public void setVencimiento(Date vencimiento) {
@@ -61,7 +64,9 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
     }
 
     public Categoria getCategoria() {
-        return categoria;
+        Categoria c = new Categoria();
+        c.setEntity(entity.getCategoria());
+        return c;
     }
 
     public void setCategoria(Categoria categoria) {
@@ -70,7 +75,9 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
     }
 
     public Responsable getResponsable() {
-        return responsable;
+        Responsable r = new Responsable();
+        r.setEntity(entity.getResponsable());
+        return r;
     }
 
     public void setResponsable(Responsable responsable) {
