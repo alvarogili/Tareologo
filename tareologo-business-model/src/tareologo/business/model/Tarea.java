@@ -17,7 +17,7 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
         entity = new TareaEntity();
     }
     
-    public int getID(){
+    public Integer getId(){
         return entity.getId();
     }
     
@@ -64,9 +64,9 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
     }
 
     public Categoria getCategoria() {
-        Categoria c = new Categoria();
-        c.setEntity(entity.getCategoria());
-        return c;
+        categoria = new Categoria();
+        categoria.setEntity(entity.getCategoria());
+        return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
@@ -75,9 +75,9 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
     }
 
     public Responsable getResponsable() {
-        Responsable r = new Responsable();
-        r.setEntity(entity.getResponsable());
-        return r;
+        responsable = new Responsable();
+        responsable.setEntity(entity.getResponsable());
+        return responsable;
     }
 
     public void setResponsable(Responsable responsable) {
@@ -87,7 +87,7 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
     
     @Override
     public int compareTo(Object o) {
-        return getID() - ((Tarea) o).getID();
+        return getId() - ((Tarea) o).getId();
     }
     
 }

@@ -9,17 +9,18 @@ import tareologo.persistence.entities.CategoriaEntity;
 
 /**
  * Categoria's manager
+ *
  * @author Alvaro
  */
 //@Stateless
-public class CategoriaManager extends BaseManager implements IBaseManager<Categoria>{      
+public class CategoriaManager extends BaseManager implements IBaseManager<Categoria> {
 
     @Override
     public void create(Categoria object) throws Exception {
-        if(object.getEntity().getId() == null){
+        if (object.getEntity().getId() == null) {
             CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
             categoriaDAO.create(object.getEntity());
-        }else{
+        } else {
             update(object);
         }
     }
@@ -28,7 +29,7 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
     public Categoria retrieve(int objectID) {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         CategoriaEntity categoriaEntity = categoriaDAO.findCategoriaEntityByID(objectID);
-        if(categoriaEntity == null){
+        if (categoriaEntity == null) {
             return null;
         }
         Categoria categoria = new Categoria();
@@ -39,23 +40,19 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
     @Override
     public void update(Categoria object) throws Exception {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
-        CategoriaEntity categoriaEntity = categoriaDAO.findCategoriaEntityByID(object.getEntity().getId());
-        if(categoriaEntity != null){
-            try {
-                //exists in the DB
-                categoriaDAO.edit(categoriaEntity);
-            } catch (Exception ex) {
-                throw new Exception(ex);
-            }
+        try {
+            //exists in the DB
+            categoriaDAO.edit(object.getEntity());
+        } catch (Exception ex) {
+            throw new Exception(ex);
         }
-        
     }
 
     @Override
     public void delete(int objectID) throws Exception {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         CategoriaEntity categoriaEntity = categoriaDAO.findCategoriaEntityByID(objectID);
-        if(categoriaEntity != null){
+        if (categoriaEntity != null) {
             try {
                 categoriaDAO.destroy(categoriaEntity.getId());
             } catch (NonexistentEntityException ex) {
@@ -69,19 +66,19 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         List<CategoriaEntity> categoriaEntities = categoriaDAO.findCategoriaEntityEntities();
         List<Categoria> categorias = new ArrayList<>();
-        for(CategoriaEntity categoriaEntity:categoriaEntities){
+        for (CategoriaEntity categoriaEntity : categoriaEntities) {
             Categoria categoria = new Categoria();
             categoria.setEntity(categoriaEntity);
             categorias.add(categoria);
         }
         return categorias;
     }
-  
-    public List<Categoria> findByName(String name){
+
+    public List<Categoria> findByName(String name) {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         List<CategoriaEntity> categoriaEntities = categoriaDAO.findCategoriaEntityByNombre(name);
         List<Categoria> categorias = new ArrayList<>();
-        for(CategoriaEntity categoriaEntity:categoriaEntities){
+        for (CategoriaEntity categoriaEntity : categoriaEntities) {
             Categoria categoria = new Categoria();
             categoria.setEntity(categoriaEntity);
             categorias.add(categoria);

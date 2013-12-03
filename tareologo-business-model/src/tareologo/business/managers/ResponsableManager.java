@@ -45,15 +45,12 @@ public class ResponsableManager extends BaseManager implements IBaseManager<Resp
     @Override
     public void update(Responsable object) {
         ResponsableDAO responsableDAO = new ResponsableDAO(emf);
-        ResponsableEntity responsableEntity = responsableDAO.findResponsableEntityByID(object.getEntity().getId());
-        if (responsableEntity != null) {
-            try {
-                responsableDAO.edit(responsableEntity);
-            } catch (NonexistentEntityException ex) {
-                Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            responsableDAO.edit(object.getEntity());
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -94,7 +91,7 @@ public class ResponsableManager extends BaseManager implements IBaseManager<Resp
         }
         return responsables;
     }
-    
+
     public List<Responsable> findByEmail(String email) {
         ResponsableDAO responsableDAO = new ResponsableDAO(emf);
         List<ResponsableEntity> responsableEntities = responsableDAO.findResponsableEntityByEmail(email);

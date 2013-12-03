@@ -6,6 +6,8 @@ package tareologo.business.managers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import tareologo.business.model.Tarea;
 import tareologo.persistence.dao.TareaDAO;
 import tareologo.persistence.dao.exceptions.NonexistentEntityException;
@@ -40,11 +42,12 @@ public class TareaManager extends BaseManager implements IBaseManager<Tarea> {
     }
 
     @Override
-    public void update(Tarea object) throws NonexistentEntityException, Exception {
+    public void update(Tarea object) {
         TareaDAO tareaDAO = new TareaDAO(emf);
-        TareaEntity tareaEntity = tareaDAO.findTareaEntityByID(object.getID());
-        if (tareaEntity != null) {
-            tareaDAO.edit(tareaEntity);
+        try {
+            tareaDAO.edit(object.getEntity());
+        } catch (Exception ex) {
+            Logger.getLogger(TareaManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
