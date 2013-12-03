@@ -17,8 +17,7 @@ import tareologo.business.model.Tarea;
 @SessionScoped
 public class TareasBean {
     
-    private List<Tarea> tareas;
-    private TareaManager tareaManager = new TareaManager();
+    private final TareaManager tareaManager = new TareaManager();
     private String prioridadSelected;
 
     /**
@@ -28,12 +27,7 @@ public class TareasBean {
     }
 
     public List<Tarea> getTareas() {
-        tareas = tareaManager.getAll();
-        return tareas;
-    }
-
-    public void setTareas(List<Tarea> tareas) {
-        this.tareas = tareas;
+        return tareaManager.getAll();
     }
 
     public String getPrioridadSelected() {
@@ -67,5 +61,9 @@ public class TareasBean {
         items.add(new SelectItem("90"));
         items.add(new SelectItem("100"));
         return items;
+    }
+    
+    public void remove(int id) throws Exception{
+        tareaManager.delete(id);
     }
 }

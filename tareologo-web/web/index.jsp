@@ -72,8 +72,10 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.completado}%</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
                                     <h:form>
-                                        <h:commandLink value="Editar" />
-                                        <h:commandLink onclick="if(!confirm('¿Realmente desea borrar esta tarea?')) return false">
+                                        <h:commandLink action="#{EditTareaBean.edit(tarea)}">
+                                            <h:outputText value="Editar" />                                           
+                                        </h:commandLink>
+                                        <h:commandLink action="#{TareasBean.remove(tarea.id)}" onclick="if(!confirm('¿Realmente desea borrar esta tarea?')) return false">
                                             <h:outputText value="Eliminar" />                                           
                                         </h:commandLink>
                                     </h:form>

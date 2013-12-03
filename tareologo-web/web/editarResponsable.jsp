@@ -5,7 +5,7 @@
 <f:view>
     <html>    
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Editando responsable "${EditResponsableBean.responsable.nombre}"</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
@@ -27,7 +27,7 @@
             </nav>
             <div id="contenido">
                 <center>
-                    <b style="font-size: 20px;">Agregando un responsable</b>            
+                    <b style="font-size: 20px;">Editando responsable "${EditResponsableBean.responsable.nombre}"</b>            
                     <br>
                     <br>
                     <br>
@@ -38,7 +38,7 @@
                         </div>
                         <div>
                             <h:inputText styleClass="campo" id="nombre" value="#{EditResponsableBean.responsable.nombre}" requiredMessage="El campo \"Nombre\" es obligatorio." required="true" />
-                                <h:message for="nombre" style="color:red; font-size:15px;" />
+                            <h:message for="nombre" style="color:red; font-size:15px;" />
                         </div>
                         <hr>
                         <div>
@@ -53,7 +53,7 @@
                         </div>
                         <div>
                             <h:inputText styleClass="campo" id="email" value="#{EditResponsableBean.responsable.email}" requiredMessage="El campo \"Email\" es obligatorio." required="true" />
-                                <h:message for="email" style="color:red; font-size:15px;" />
+                            <h:message for="email" style="color:red; font-size:15px;" />
                         </div>
                         <hr>    
                         <div>

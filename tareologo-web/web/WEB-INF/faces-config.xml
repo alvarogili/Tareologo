@@ -134,5 +134,25 @@
             <from-outcome>categorias</from-outcome>
             <to-view-id>/categorias.jsp</to-view-id>
         </navigation-case> 
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/editarTarea.xhtml</to-view-id>
+        </navigation-case> 
+    </navigation-rule>   
+    
+    <navigation-rule>
+        <from-view-id>/editarTarea.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>responsables</from-outcome>
+            <to-view-id>/responsables.jsp</to-view-id> 
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.jsp</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>categorias</from-outcome>
+            <to-view-id>/categorias.jsp</to-view-id>
+        </navigation-case>        
     </navigation-rule>   
 </faces-config>
