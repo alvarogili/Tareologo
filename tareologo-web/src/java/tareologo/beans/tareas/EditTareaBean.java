@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import tareologo.business.managers.TareaManager;
-import tareologo.business.model.Responsable;
 import tareologo.business.model.Tarea;
 
 /**
@@ -27,9 +26,13 @@ public class EditTareaBean {
         return "edit";
     }
 
+    public void setTarea(Tarea tarea) {
+        this.tarea = tarea;
+    }
+
     public Tarea getTarea() {
         return tarea;
-    }
+    }        
 
     public void update(){
         try {

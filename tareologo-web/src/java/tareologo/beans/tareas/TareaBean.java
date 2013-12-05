@@ -2,6 +2,7 @@
 
 package tareologo.beans.tareas;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -35,16 +36,16 @@ public class TareaBean {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitulo(String titulo) throws UnsupportedEncodingException {
+        this.titulo = new String(titulo.getBytes("ISO-8859-1"));
     }
 
     public String getTexto() {
         return texto;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setTexto(String texto) throws UnsupportedEncodingException {
+        this.texto = new String(texto.getBytes("ISO-8859-1"));
     }
 
     public String getPrioridad() {

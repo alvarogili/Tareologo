@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -7,7 +6,7 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>TareÃ³logo</title>
+            <title>Tareólogo</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
             </style>
@@ -18,12 +17,12 @@
         <body>
             <nav>                                         
                 <h:form>
-                    <h:commandLink styleClass="logo" action="index" value="TareÃ³logo" />
+                    <h:commandLink styleClass="logo" action="index" value="Tareólogo" />
                 </h:form>
                 <h:form id="formMenu">                    
                     <h:commandLink styleClass="menu" action="index" value="Inicio" style="background-color: #333333; color:white; font-style: italic;"/>
                     <h:commandLink styleClass="menu" action="responsables" value="Responsables"  />
-                    <h:commandLink styleClass="menu" action="categorias" value="CategorÃ­as" />
+                    <h:commandLink styleClass="menu" action="categorias" value="Categorías" />
                 </h:form> 
             </nav>
             <div id="contenido">
@@ -50,16 +49,16 @@
                                 <br>
                                 <br>
                                 <br>
-                                <b style="font-size: 20px;">No se cargaron tareas aÃºn.</b>
+                                <b style="font-size: 20px;">No se cargaron tareas aún.</b>
                             </c:when>
                             <c:otherwise>
                                 <tr>
-                                    <td class="columna-titulo">TÃ­tulo</td>
+                                    <td class="columna-titulo">Título</td>
                                     <td class="cabecera">Responsable</td>     
-                                    <td class="cabecera">CategorÃ­a</td>     
+                                    <td class="cabecera">Categoría</td>     
                                     <td class="cabecera">Vencimiento</td>     
                                     <td class="cabecera">Completado</td>     
-                                    <td class="cabecera-check">AdministraciÃ³n</td>
+                                    <td class="cabecera-check">Administración</td>
                                 </tr>
                             </c:otherwise>
                         </c:choose>
@@ -70,14 +69,12 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.categoria.nombre}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.vencimiento}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.completado}%</td>
-                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check"> 
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check">                                     
                                     <h:form>
-                                        <h:commandLink action="#{EditTareaBean.edit(tarea)}">
-                                            <h:outputText value="Editar" />                                           
-                                        </h:commandLink>
-                                        <h:commandLink action="#{TareasBean.remove(tarea.id)}" onclick="if(!confirm('Â¿Realmente desea borrar esta tarea?')) return false">
+                                        <h:commandLink action="#{EditTareaBean.edit(tarea)}" value="Editar" />
+                                        <h:commandLink action="#{TareasBean.remove(tarea.id)}" onclick="if(!confirm('¿Realmente desea borrar este tarea?')) return false">
                                             <h:outputText value="Eliminar" />                                           
-                                        </h:commandLink>
+                                        </h:commandLink>                                        
                                     </h:form>
                                 </td>
                             </tr>

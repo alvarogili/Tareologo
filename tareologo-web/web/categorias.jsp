@@ -5,8 +5,8 @@
 <f:view>
     <html>
         <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-            <title>Categorías</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <title>Tareólogo</title>
             <style type="text/css" media="screen">
                 <%@ include file="css/common.css" %>
             </style>
@@ -70,7 +70,7 @@
                                     <h:form>
                                         <h:commandLink action="#{EditCategoriaBean.edit(categoria)}" value="Editar" />
                                         <h:commandLink action="#{CategoriasBean.remove(categoria.id)}" onclick="if(!confirm('¿Realmente desea borrar este categoría?')) return false">
-                                            <h:outputText value="Eliminar" />                                           
+                                            <h:outputText value="Eliminar" />     
                                         </h:commandLink>
                                     </h:form>
                                 </td>
