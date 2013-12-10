@@ -55,7 +55,7 @@ public class TareaManager extends BaseManager implements IBaseManager<Tarea> {
     public void delete(int objectID) throws Exception {
         TareaDAO tareaDAO = new TareaDAO(emf);
         TareaEntity tareaEntity = tareaDAO.findTareaEntityByID(objectID);
-        if(tareaEntity != null){
+        if (tareaEntity != null) {
             tareaDAO.destroy(tareaEntity.getId());
         }
     }
@@ -64,12 +64,34 @@ public class TareaManager extends BaseManager implements IBaseManager<Tarea> {
     public List<Tarea> getAll() {
         TareaDAO tareaDAO = new TareaDAO(emf);
         List<TareaEntity> tareaEntities = tareaDAO.findTareaEntityEntities();
+        return makeList(tareaEntities);
+    }
+
+    public List<Tarea> findByTitle(String title) {
+        TareaDAO tareaDAO = new TareaDAO(emf);
+        List<TareaEntity> tareaEntities = tareaDAO.findTareaEntityByTitulo(title);
+        return makeList(tareaEntities);
+    }
+
+    public List<Tarea> findByResponsale(String responsable) {
+        TareaDAO tareaDAO = new TareaDAO(emf);
+        List<TareaEntity> tareaEntities = tareaDAO.findTareaEntityByResponsable(responsable);
+        return makeList(tareaEntities);
+    }
+
+    private List<Tarea> makeList(List<TareaEntity> tareaEntitys) {
         List<Tarea> tareas = new ArrayList<>();
-        for (TareaEntity tareaEntity : tareaEntities) {
+        for (TareaEntity tareaEntity : tareaEntitys) {
             Tarea tarea = new Tarea();
             tarea.setEntity(tareaEntity);
             tareas.add(tarea);
         }
         return tareas;
+    }
+    
+    public List<Tarea> customFind(String title, String responsale, boolean completado){
+        TareaDAO tareaDAO = new TareaDAO(emf);
+        List<TareaEntity> tareaEntities = tareaDAO.findTareaEntityCustom(title, responsale, completado);
+        return makeList(tareaEntities);
     }
 }
