@@ -14,6 +14,7 @@ import tareologo.persistence.entities.TareaEntity;
 
 /**
  * Tarea DAO
+ *
  * @author Alvaro Gili
  */
 public class TareaDAO implements Serializable {
@@ -29,6 +30,7 @@ public class TareaDAO implements Serializable {
 
     /**
      * Creates and inserts a {@link TareaEntity}
+     *
      * @param tareaEntity Object to insert
      */
     public void create(TareaEntity tareaEntity) {
@@ -47,9 +49,10 @@ public class TareaDAO implements Serializable {
 
     /**
      * Edit a {@link TareaEntity}
+     *
      * @param tareaEntity Object to edit
      * @throws NonexistentEntityException
-     * @throws Exception 
+     * @throws Exception
      */
     public void edit(TareaEntity tareaEntity) throws NonexistentEntityException, Exception {
         EntityManager em = null;
@@ -76,8 +79,9 @@ public class TareaDAO implements Serializable {
 
     /**
      * Deletes a {@link TareaEntity} given the ID
+     *
      * @param id ID of the object to remove
-     * @throws NonexistentEntityException 
+     * @throws NonexistentEntityException
      */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
@@ -109,9 +113,9 @@ public class TareaDAO implements Serializable {
         return findTareaEntityEntities(true, -1, -1);
     }
 
-     /**
-     * Return a list of {@link TareaEntity} starting in firstResult and ending in
-     * firstResult + maxResults
+    /**
+     * Return a list of {@link TareaEntity} starting in firstResult and ending
+     * in firstResult + maxResults
      *
      * @param maxResults
      * @param firstResult
@@ -137,7 +141,7 @@ public class TareaDAO implements Serializable {
         }
     }
 
-     /**
+    /**
      * Return a {@link TareaEntity} given an ID
      *
      * @param id ID of the {@link TareaEntity} to find
@@ -153,8 +157,8 @@ public class TareaDAO implements Serializable {
             em.close();
         }
     }
-    
-   /**
+
+    /**
      * Return a list of {@link TareaEntity} given a percentaje
      *
      * @param percentaje percentaje of the {@link TareaEntity} to find
@@ -170,8 +174,8 @@ public class TareaDAO implements Serializable {
             em.close();
         }
     }
-    
-     /**
+
+    /**
      * Return a list of {@link TareaEntity} given a priority
      *
      * @param priority priority of the {@link TareaEntity} to find
@@ -198,13 +202,13 @@ public class TareaDAO implements Serializable {
         EntityManager em = getEntityManager();
         try {
             Query q = em.createNamedQuery("TareaEntity.findByTitulo", TareaEntity.class);
-            q.setParameter("titulo", title);
+            q.setParameter("titulo", "%" + title + "%");
             return q.getResultList();
         } finally {
             em.close();
         }
     }
-    
+
     /**
      * Return a list of {@link TareaEntity} given a expiry time
      *
@@ -221,8 +225,63 @@ public class TareaDAO implements Serializable {
             em.close();
         }
     }
-    
-     /**
+
+    /**
+     * Return a list of {@link TareaEntity} given a responsable
+     *
+     * @param responsable responsible of the {@link TareaEntity} to find
+     * @return The {@link TareaEntity} or null
+     */
+    public List<TareaEntity> findTareaEntityByResponsable(String responsable) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createNamedQuery("TareaEntity.findByResponsable", TareaEntity.class);
+            q.setParameter("responsable", responsable);
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    /**
+     * Return a list of {@link TareaEntity} given a custom parameters
+     *
+     * @param titulo Title of tarea
+     * @param responsable Responsable's name of tarea
+     * @param completado Completed status
+     * @return
+     */
+    public List<TareaEntity> findTareaEntityCustom(String titulo, String responsable, boolean completado) {
+        EntityManager em = getEntityManager();
+        String queryString = "SELECT t FROM TareaEntity t WHERE ";
+        if (titulo != null && !titulo.isEmpty()) {
+            queryString = queryString + "t.titulo LIKE :titulo";//%" + titulo + "%";
+        }
+        if (responsable != null && !responsable.isEmpty()) {
+            if (titulo != null && !titulo.isEmpty()) {
+                queryString += " AND ";
+            }
+            queryString = queryString + "t.responsable.id = " + responsable;
+        }
+        if (completado) {
+            if ((titulo != null && !titulo.isEmpty())
+                    || (responsable != null && !responsable.isEmpty())) {
+                queryString += " AND ";
+            }
+            queryString += "t.completado = 100.0";
+        }
+        try {
+            Query q = em.createQuery(queryString);
+            if (titulo != null && !titulo.isEmpty()) {
+                q.setParameter("titulo", "%" + titulo + "%");
+            }
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    /**
      * Return the amount of {@link TareaEntity} in the DB
      *
      * @return
@@ -239,5 +298,5 @@ public class TareaDAO implements Serializable {
             em.close();
         }
     }
-    
+
 }

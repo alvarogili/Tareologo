@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TareaEntity.findByTitulo", query = "SELECT t FROM TareaEntity t WHERE t.titulo like :titulo"),
     @NamedQuery(name = "TareaEntity.findByPrioridad", query = "SELECT t FROM TareaEntity t WHERE t.prioridad = :prioridad"),
     @NamedQuery(name = "TareaEntity.findByVencimiento", query = "SELECT t FROM TareaEntity t WHERE t.vencimiento = :vencimiento"),
-    @NamedQuery(name = "TareaEntity.findByCompletado", query = "SELECT t FROM TareaEntity t WHERE t.completado = :completado")})
+    @NamedQuery(name = "TareaEntity.findByCompletado", query = "SELECT t FROM TareaEntity t WHERE t.completado = :completado"),
+    @NamedQuery(name = "TareaEntity.findByResponsable", query = "SELECT t FROM TareaEntity t WHERE t.responsable.nombre = :responsable")})
 public class TareaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
