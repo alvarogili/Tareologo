@@ -19,6 +19,9 @@ public class TareasBean {
     
     private final TareaManager tareaManager = new TareaManager();
     private String prioridadSelected;
+    private String filter;
+    private String responsable;
+    private boolean completadas;
 
     /**
      * Creates a new instance of TareasBean
@@ -27,7 +30,13 @@ public class TareasBean {
     }
 
     public List<Tarea> getTareas() {
-        return tareaManager.getAll();
+        if((filter != null && !filter.isEmpty()) || 
+                (responsable != null && !responsable.isEmpty()) || 
+                completadas){
+            return tareaManager.customFind(filter, responsable, completadas);
+        }else{
+            return tareaManager.getAll();
+        }
     }
 
     public String getPrioridadSelected() {
@@ -36,6 +45,36 @@ public class TareasBean {
 
     public void setPrioridadSelected(String prioridadSelected) {
         this.prioridadSelected = prioridadSelected;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setResponsable(String responsable) {
+        this.responsable = responsable;
+    }
+
+    public String getResponsable() {
+        return responsable;
+    }        
+
+    public boolean getCompletadas() {
+        return completadas;
+    }
+
+    public void setCompletadas(boolean completadas) {
+        this.completadas = completadas;
+    }
+    
+    public void removeFilter(){
+        this.filter = null;
+        this.responsable = null;
+        this.completadas = false;
     }
     
     public List<SelectItem> getItemsPrioridad() {

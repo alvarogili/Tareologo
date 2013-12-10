@@ -29,14 +29,25 @@
                 <center>
                     <b style="font-size: 20px;">Lista de tareas</b>
                     <br>
-                    <br>
                 </center>
-                <h:form id="buscar">
-                    Filtrar por 
-                </h:form>                    
                 <h:form id="nuevo">
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarTarea" />  
                 </h:form>
+                <br />
+                    <br />
+                <h:form id="buscar">
+                    Buscar:
+                    <h:inputText id="buscar" style="margin-right:10px; width:150px;" value="#{TareasBean.filter}" />
+                    Responsable
+                    <h:selectOneMenu style="margin-right:10px;" value="#{TareasBean.responsable}">
+                        <f:selectItem itemLabel="Todos" itemValue=""/>
+                        <f:selectItems value="#{ResponsablesBean.responsablesItems}" />
+                    </h:selectOneMenu>
+                    <h:selectBooleanCheckbox id="completadas" label="Completadas" value="#{TareasBean.completadas}" />
+                    Sólo completadas...
+                    <h:commandButton type="submit" styleClass="boton" value="Aplicar" action="index" style="margin-left:10px;" />
+                    <h:commandLink id="quitarFiltro" styleClass="link" value="Quitar filtro" action="#{TareasBean.removeFilter()}" /> 
+                </h:form>       
                 <br>
                 <center>                
                     <br>

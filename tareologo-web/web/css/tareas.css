@@ -10,8 +10,16 @@
     width: 300px;      
 }
 
+#buscar{
+    width: 75%;
+}
+
 #lista-tareas{
     width: 80%;
+}
+
+#nuevo{
+    padding-left: 75%;
 }
 
 .cabecera{    

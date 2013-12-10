@@ -9,8 +9,6 @@ import javax.faces.bean.RequestScoped;
 import tareologo.business.managers.CategoriaManager;
 import tareologo.business.managers.ResponsableManager;
 import tareologo.business.managers.TareaManager;
-import tareologo.business.model.Categoria;
-import tareologo.business.model.Responsable;
 import tareologo.business.model.Tarea;
 
 /**
