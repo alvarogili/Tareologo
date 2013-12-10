@@ -35,7 +35,7 @@ public class ResponsableEntity implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic(optional = false)
     @Column(name = "Nombre")
