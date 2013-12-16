@@ -8,4 +8,4 @@ Listo
 
 Tareas:
 
--todo
+-falla el link a editar y a eliminar
