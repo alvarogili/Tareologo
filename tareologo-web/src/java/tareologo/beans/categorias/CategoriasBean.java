@@ -69,11 +69,7 @@ public class CategoriasBean {
         this.filter = null;
     }
 
-    public void remove(int id) {
-        try {
-            categoriaManager.delete(id);
-        } catch (Exception ex) {
-            Logger.getLogger(CategoriasBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void remove(int id) throws Exception {        
+            categoriaManager.delete(id);        
     }
 }

@@ -34,7 +34,7 @@
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarTarea" />  
                 </h:form>
                 <br />
-                    <br />
+                <br />
                 <h:form id="buscar">
                     Buscar:
                     <h:inputText id="buscar" style="margin-right:10px; width:150px;" value="#{TareasBean.filter}" />
@@ -81,11 +81,11 @@
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.vencimiento}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.completado}%</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check">                                     
-                                    <h:form>
-                                        <h:commandLink action="#{EditTareaBean.edit(tarea)}" value="Editar" />
+                                    <h:form>                 
+                                        <h:commandLink action="#{EditResponsableBean.edit(tarea.responsable)}" value="Editar" />
                                         <h:commandLink action="#{TareasBean.remove(tarea.id)}" onclick="if(!confirm('¿Realmente desea borrar este tarea?')) return false">
-                                            <h:outputText value="Eliminar" />                                           
-                                        </h:commandLink>                                        
+                                             <h:outputText value="Eliminar" />   
+                                        </h:commandLink>
                                     </h:form>
                                 </td>
                             </tr>

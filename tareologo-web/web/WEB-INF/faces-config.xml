@@ -155,4 +155,8 @@
             <to-view-id>/categorias.jsp</to-view-id>
         </navigation-case>        
     </navigation-rule>   
+    
+    <factory>
+        <exception-handler-factory>tareologo.exceptions.ExceptionHandlerFactory</exception-handler-factory>
+    </factory>
 </faces-config>
