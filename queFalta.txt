@@ -1,11 +1,12 @@
 Categorias:
 
-Listo
+verificar dependecia al eliminar
 
 Responsables:
 
-Listo
+verificar dependecia al eliminar
 
 Tareas:
 
--todo
+-editar
+-eliminar
