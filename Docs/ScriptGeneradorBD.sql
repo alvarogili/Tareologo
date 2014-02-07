@@ -35,29 +35,29 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `tareologo`.`Tarea`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `tareologo`.`Tarea` (
-  `Id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `Titulo` VARCHAR(256) NOT NULL ,
-  `Texto` VARCHAR(4000) NULL DEFAULT NULL ,
-  `Prioridad` INT(11) NOT NULL ,
-  `Vencimiento` DATETIME NULL DEFAULT NULL ,
-  `Completado` FLOAT NOT NULL ,
-  `Responsable_Id` INT(11) NOT NULL ,
-  `Categoria_Id` INT(11) NOT NULL ,
-  PRIMARY KEY (`Id`) ,
-  INDEX `fk_Tarea_Responsable_idx` (`Responsable_Id` ASC) ,
-  INDEX `fk_Tarea_Categoria1_idx` (`Categoria_Id` ASC) ,
+CREATE TABLE IF NOT EXISTS `tareologo`.`Tarea` (
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Titulo` VARCHAR(256) NOT NULL,
+  `Texto` VARCHAR(4000) NULL DEFAULT NULL,
+  `Prioridad` VARCHAR(20) NOT NULL,
+  `Vencimiento` DATETIME NULL DEFAULT NULL,
+  `Completado` FLOAT NOT NULL,
+  `Responsable_Id` INT(11) NOT NULL,
+  `Categoria_Id` INT(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_Tarea_Responsable_idx` (`Responsable_Id` ASC),
+  INDEX `fk_Tarea_Categoria1_idx` (`Categoria_Id` ASC),
   CONSTRAINT `fk_Tarea_Categoria1`
-    FOREIGN KEY (`Categoria_Id` )
-    REFERENCES `tareologo`.`Categoria` (`Id` )
+    FOREIGN KEY (`Categoria_Id`)
+    REFERENCES `tareologo`.`Categoria` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Tarea_Responsable`
-    FOREIGN KEY (`Responsable_Id` )
-    REFERENCES `tareologo`.`Responsable` (`Id` )
+    FOREIGN KEY (`Responsable_Id`)
+    REFERENCES `tareologo`.`Responsable` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
+ENGINE = InnoDB;
 DEFAULT CHARACTER SET = utf8;
 
 USE `tareologo` ;
