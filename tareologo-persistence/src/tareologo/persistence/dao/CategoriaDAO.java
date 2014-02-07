@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.RollbackException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import tareologo.persistence.dao.exceptions.NonexistentEntityException;
@@ -82,7 +83,7 @@ public class CategoriaDAO implements Serializable {
      * @param id ID of the {@link CategoriaEntity} to remove
      * @throws NonexistentEntityException
      */
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(Integer id) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -95,7 +96,13 @@ public class CategoriaDAO implements Serializable {
                 throw new NonexistentEntityException("The categoriaEntity with id " + id + " no longer exists.", enfe);
             }
             em.remove(categoriaEntity);
-            em.getTransaction().commit();
+            try {
+                em.getTransaction().commit();
+            } catch (IllegalStateException exception) {
+                throw new Exception("Not Active");
+            } catch (RollbackException exception) {
+                throw new Exception("Error al borrar la categoria con id " + id + ". Esta tiene tareas asociadas.");
+            }
         } finally {
             if (em != null) {
                 em.close();
