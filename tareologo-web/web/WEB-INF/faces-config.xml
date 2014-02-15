@@ -49,7 +49,7 @@
         <navigation-case>
             <from-outcome>categorias</from-outcome>
             <to-view-id>/categorias.jsp</to-view-id>
-        </navigation-case> 
+        </navigation-case>         
     </navigation-rule>
     
     <navigation-rule>        
@@ -89,7 +89,19 @@
         <navigation-case>
             <from-outcome>categorias</from-outcome>
             <to-view-id>/categorias.jsp</to-view-id>
-        </navigation-case>              
+        </navigation-case>   
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/respError.jsp</to-view-id>
+        </navigation-case>           
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/respError.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>responsables</from-outcome>
+            <to-view-id>responsables.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -113,8 +125,20 @@
         <navigation-case>
             <from-outcome>categorias</from-outcome>
             <to-view-id>/categorias.jsp</to-view-id>
+        </navigation-case>     
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/catError.jsp</to-view-id>
         </navigation-case>                     
     </navigation-rule> 
+    
+    <navigation-rule>
+        <from-view-id>/catError.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>categorias</from-outcome>
+            <to-view-id>categorias.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     
     <navigation-rule>
         <from-view-id>/index.jsp</from-view-id>
@@ -155,8 +179,4 @@
             <to-view-id>/categorias.jsp</to-view-id>
         </navigation-case>        
     </navigation-rule>   
-    
-    <factory>
-        <exception-handler-factory>tareologo.exceptions.ExceptionHandlerFactory</exception-handler-factory>
-    </factory>
 </faces-config>

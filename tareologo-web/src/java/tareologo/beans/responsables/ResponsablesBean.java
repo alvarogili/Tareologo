@@ -6,11 +6,15 @@ package tareologo.beans.responsables;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
+import javax.persistence.RollbackException;
 import tareologo.business.managers.ResponsableManager;
 import tareologo.business.model.Responsable;
+import tareologo.persistence.dao.exceptions.NonexistentEntityException;
 
 /**
  *
@@ -35,10 +39,15 @@ public class ResponsablesBean {
      * Borra un responsable de la lista
      *
      * @param id ID del responsable a borrar
-     * @return
+     * @return 0: ok, 1: no existe, 2: no pudo ser borrado
      */
-    public void remove(int id) {
-        responsableManager.delete(id);
+    public String remove(int id) {
+        try {
+            responsableManager.delete(id);
+        } catch (RollbackException | NonexistentEntityException ex) {
+            return "error";
+        }
+        return "responsables";
     }
 
     public List<Responsable> getResponsables() {
@@ -74,7 +83,7 @@ public class ResponsablesBean {
     public List<SelectItem> getResponsablesItems() {
         List<SelectItem> responsablesItems = new ArrayList<>();
         List<Responsable> responsables = responsableManager.getAll();
-        for(Responsable responsable: responsables){
+        for (Responsable responsable : responsables) {
             responsablesItems.add(new SelectItem(responsable.getId().toString(), responsable.getNombre()));
         }
         return responsablesItems;

@@ -11,8 +11,10 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
+import javax.persistence.RollbackException;
 import tareologo.business.managers.CategoriaManager;
 import tareologo.business.model.Categoria;
+import tareologo.persistence.dao.exceptions.NonexistentEntityException;
 
 /**
  *
@@ -69,7 +71,14 @@ public class CategoriasBean {
         this.filter = null;
     }
 
-    public void remove(int id) throws Exception {        
-            categoriaManager.delete(id);        
+    public String remove(int id) {
+        try { 
+            categoriaManager.delete(id);
+        } catch (RollbackException ex) {
+            return "error";
+        } catch (NonexistentEntityException ex) {
+            return "error";
+        }
+        return "categorias";
     }
 }
