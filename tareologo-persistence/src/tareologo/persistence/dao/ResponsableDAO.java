@@ -79,7 +79,7 @@ public class ResponsableDAO implements Serializable {
      * @param id ID of the object to remove
      * @throws NonexistentEntityException 
      */
-    public void destroy(Integer id) throws Exception  {
+    public void destroy(Integer id) throws RollbackException, NonexistentEntityException  {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -92,13 +92,7 @@ public class ResponsableDAO implements Serializable {
                 throw new NonexistentEntityException("The responsableEntity with id " + id + " no longer exists.", enfe);
             }
             em.remove(responsableEntity);
-             try {
-                em.getTransaction().commit();
-            } catch (IllegalStateException exception) {
-                throw new Exception("Not Active");
-            } catch (RollbackException exception) {
-                throw new Exception("Error al borrar el responsable con id " + id + ". Este tiene tareas asociadas.");
-            }
+            em.getTransaction().commit();
         } finally {
             if (em != null) {
                 em.close();

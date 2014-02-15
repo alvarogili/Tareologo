@@ -67,7 +67,7 @@ public class TareaDAOTest {
     }
     
     @AfterClass
-    public static void tearDownClass() throws NonexistentEntityException{
+    public static void tearDownClass() throws NonexistentEntityException, Exception{
         ResponsableDAO responsableDAO = new ResponsableDAO(emf);
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         responsableDAO.destroy(responsableEntity.getId());

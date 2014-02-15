@@ -83,7 +83,7 @@ public class CategoriaDAO implements Serializable {
      * @param id ID of the {@link CategoriaEntity} to remove
      * @throws NonexistentEntityException
      */
-    public void destroy(Integer id) throws Exception {
+    public void destroy(Integer id) throws NonexistentEntityException, RollbackException{
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -96,13 +96,7 @@ public class CategoriaDAO implements Serializable {
                 throw new NonexistentEntityException("The categoriaEntity with id " + id + " no longer exists.", enfe);
             }
             em.remove(categoriaEntity);
-            try {
-                em.getTransaction().commit();
-            } catch (IllegalStateException exception) {
-                throw new Exception("Not Active");
-            } catch (RollbackException exception) {
-                throw new Exception("Error al borrar la categoria con id " + id + ". Esta tiene tareas asociadas.");
-            }
+            em.getTransaction().commit();
         } finally {
             if (em != null) {
                 em.close();

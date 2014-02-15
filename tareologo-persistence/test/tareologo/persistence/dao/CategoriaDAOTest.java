@@ -34,7 +34,7 @@ public class CategoriaDAOTest {
     }
     
     @After
-    public void tearDown() throws NonexistentEntityException{
+    public void tearDown() throws NonexistentEntityException, Exception{
         System.out.println("Cleaning the database");
         //borro todo lo creado
         List<CategoriaEntity> categoriaEntitys = categoriaDao.findCategoriaEntityEntities();
