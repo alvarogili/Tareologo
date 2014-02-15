@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import tareologo.business.model.Tarea;
 import tareologo.persistence.dao.TareaDAO;
+import tareologo.persistence.dao.exceptions.NonexistentEntityException;
 import tareologo.persistence.entities.TareaEntity;
 
 /**

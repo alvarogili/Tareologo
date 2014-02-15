@@ -2,6 +2,7 @@ package tareologo.business.managers;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.RollbackException;
 import tareologo.business.model.Categoria;
 import tareologo.persistence.dao.CategoriaDAO;
 import tareologo.persistence.dao.exceptions.NonexistentEntityException;
@@ -49,15 +50,11 @@ public class CategoriaManager extends BaseManager implements IBaseManager<Catego
     }
 
     @Override
-    public void delete(int objectID) throws Exception {
+    public void delete(int objectID) throws RollbackException, NonexistentEntityException {
         CategoriaDAO categoriaDAO = new CategoriaDAO(emf);
         CategoriaEntity categoriaEntity = categoriaDAO.findCategoriaEntityByID(objectID);
         if (categoriaEntity != null) {
-            try {
-                categoriaDAO.destroy(categoriaEntity.getId());
-            } catch (NonexistentEntityException ex) {
-                throw new Exception(ex);
-            }
+                categoriaDAO.destroy(categoriaEntity.getId());   
         }
     }
 

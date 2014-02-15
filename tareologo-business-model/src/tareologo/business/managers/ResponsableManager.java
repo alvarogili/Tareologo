@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.RollbackException;
 import tareologo.business.model.Responsable;
 import tareologo.persistence.dao.ResponsableDAO;
 import tareologo.persistence.dao.exceptions.NonexistentEntityException;
@@ -55,15 +56,11 @@ public class ResponsableManager extends BaseManager implements IBaseManager<Resp
     }
 
     @Override
-    public void delete(int objectID) {
+    public void delete(int objectID) throws RollbackException, NonexistentEntityException {
         ResponsableDAO responsableDAO = new ResponsableDAO(emf);
         ResponsableEntity responsableEntity = responsableDAO.findResponsableEntityByID(objectID);
         if (responsableEntity != null) {
-            try {
                 responsableDAO.destroy(responsableEntity.getId());
-            } catch (NonexistentEntityException ex) {
-                Logger.getLogger(ResponsableManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 
