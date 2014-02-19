@@ -45,10 +45,8 @@ public class Tarea extends BOBase<TareaEntity> implements Comparable{
         entity.setPrioridad(prioridad);
     }
 
-    public String getVencimiento() {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-	String resultado = formato.format(entity.getVencimiento());
-        return resultado;
+    public Date getVencimiento() {
+        return entity.getVencimiento();
     }
 
     public void setVencimiento(Date vencimiento) {
