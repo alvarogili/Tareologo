@@ -40,13 +40,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TareaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @Column(name = "Id")
+    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Basic(optional = false)
+    @Column(name = "Titulo")
     private String titulo;
+    @Column(name = "Texto")
     private String texto;
+    @Basic(optional = false)
+    @Column(name = "Prioridad")
     private String prioridad;
+    @Column(name = "Vencimiento")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date vencimiento;
+    @Basic(optional = false)
+    @Column(name = "Completado")
     private float completado;
+    @JoinColumn(name = "Categoria_Id", referencedColumnName = "Id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private CategoriaEntity categoria;
+    @JoinColumn(name = "Responsable_Id", referencedColumnName = "Id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ResponsableEntity responsable;
 
     public TareaEntity() {
@@ -62,11 +79,7 @@ public class TareaEntity implements Serializable {
         this.prioridad = prioridad;
         this.completado = completado;
     }
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     public Integer getId() {
         return id;
     }
@@ -74,9 +87,7 @@ public class TareaEntity implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    @Basic(optional = false)
-    @Column(name = "Titulo")
+    
     public String getTitulo() {
         return titulo;
     }
@@ -85,7 +96,6 @@ public class TareaEntity implements Serializable {
         this.titulo = titulo;
     }
 
-    @Column(name = "Texto")
     public String getTexto() {
         return texto;
     }
@@ -93,9 +103,7 @@ public class TareaEntity implements Serializable {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-
-    @Basic(optional = false)
-    @Column(name = "Prioridad")
+    
     public String getPrioridad() {
         return prioridad;
     }
@@ -103,9 +111,7 @@ public class TareaEntity implements Serializable {
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
-
-    @Column(name = "Vencimiento")
-    @Temporal(TemporalType.TIMESTAMP)
+    
     public Date getVencimiento() {
         return vencimiento;
     }
@@ -113,9 +119,7 @@ public class TareaEntity implements Serializable {
     public void setVencimiento(Date vencimiento) {
         this.vencimiento = vencimiento;
     }
-
-    @Basic(optional = false)
-    @Column(name = "Completado")
+    
     public float getCompletado() {
         return completado;
     }
@@ -123,9 +127,7 @@ public class TareaEntity implements Serializable {
     public void setCompletado(float completado) {
         this.completado = completado;
     }
-
-    @JoinColumn(name = "Categoria_Id", referencedColumnName = "Id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    
     public CategoriaEntity getCategoria() {
         return categoria;
     }
@@ -133,9 +135,7 @@ public class TareaEntity implements Serializable {
     public void setCategoria(CategoriaEntity categoria) {
         this.categoria = categoria;
     }
-
-    @JoinColumn(name = "Responsable_Id", referencedColumnName = "Id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    
     public ResponsableEntity getResponsable() {
         return responsable;
     }
