@@ -23,7 +23,7 @@
             </nav>
             <div id="contenido">
                 <center>
-                    <b style="font-size: 20px;">Editando tarea "${EditTareaBean.tarea}"</b>            
+                    <b style="font-size: 20px;">Editando tarea "${EditTareaBean.tarea.titulo}"</b>            
                     <br />
                     <br />
                     <br />
@@ -93,16 +93,10 @@
                         <hr /> 
                         <div style="width: 75%;display: inline-block;">
                             <div style="padding-left: 5px; width: 49%;">
-                                <h:outputLabel for="responsable" value="Responsable: " />
-                                <h:selectOneMenu id="responsable" value="#{EditTareaBean.tarea.responsable}">
-                                    <f:selectItems value="#{ResponsablesBean.responsablesItems}" />                         
-                                </h:selectOneMenu>
+                                <h:outputLabel for="responsable" value="Responsable: #{EditTareaBean.tarea.responsable.nombre}" />                               
                             </div>
                             <div style="text-align: right; width: 49%;">
-                                <h:outputLabel for="categoria" value="Categoría " />
-                                <h:selectOneMenu id="categoria" value="#{EditTareaBean.tarea.categoria}">
-                                    <f:selectItems value="#{CategoriasBean.categoriasItems}" />                             
-                                </h:selectOneMenu>
+                                <h:outputLabel for="categoria" value="Categoría: #{EditTareaBean.tarea.categoria.nombre}" />                                
                             </div>
                         </div>                        
                         <hr /> 

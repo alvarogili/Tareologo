@@ -4,6 +4,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
+import tareologo.business.managers.CategoriaManager;
+import tareologo.business.managers.ResponsableManager;
 import tareologo.business.managers.TareaManager;
 import tareologo.business.model.Tarea;
 
@@ -32,8 +35,8 @@ public class EditTareaBean {
 
     public Tarea getTarea() {
         return tarea;
-    }        
-
+    }
+    
     public void update(){
         try {
             tareaManager.update(tarea);

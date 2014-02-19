@@ -34,7 +34,7 @@
                     <h:commandButton styleClass="boton" value="Agregar nueva" action="agregarTarea" />  
                 </h:form>
                 <br />
-                    <br />
+                <br />
                 <h:form id="buscar">
                     Buscar:
                     <h:inputText id="buscar" style="margin-right:10px; width:150px;" value="#{TareasBean.filter}" />
@@ -73,12 +73,16 @@
                                 </tr>
                             </c:otherwise>
                         </c:choose>
-                        <c:forEach items="${TareasBean.tareas}" var="tarea" varStatus="status">
+                        <c:forEach items="#{TareasBean.tareas}" var="tarea" varStatus="status">
                             <tr class="fila">                                
                                 <td class="${status.count % 2 == 0? "fila-titulo-par": "fila-titulo-impar"}">${tarea.titulo}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.responsable.nombre}</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.categoria.nombre}</td>
-                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.vencimiento}</td>
+                                <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">
+                                    <h:outputText value="#{tarea.vencimiento}">
+                                        <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                                    </h:outputText>
+                                </td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}">${tarea.completado}%</td>
                                 <td class="${status.count % 2 == 0? "fila-par": "fila-impar"}-check">                                     
                                     <h:form>

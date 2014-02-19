@@ -99,4 +99,8 @@ public class TareaBean {
         tarea.setVencimiento(vencimiento);
         tareaManager.create(tarea);
     }
+    
+    public void editarTarea(){
+        
+    }
 }
