@@ -43,7 +43,7 @@ public class TareaEntity implements Serializable {
     @Id
     @Column(name = "Id")
     @Basic(optional = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic(optional = false)
     @Column(name = "Titulo")
